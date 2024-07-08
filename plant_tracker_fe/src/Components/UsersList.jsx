@@ -17,8 +17,7 @@ const UsersList = ({ users }) => {
         setFilteredUsers(filtered);
     }
 
-    console.log("USERS: " + users)
-    console.log("FILTERED: " + filteredUsers)
+ 
 
     return (
         <div> 
