@@ -13,6 +13,8 @@ function App() {
   const [plants, setPlants] = useState([])
   const [duties, setDuties] = useState([])
   const [countries, setCountries] = useState([])
+  const [loading, setLoading] = useState(true);
+
 
   const fetchUsers = async() => {
     const response = await fetch('http://localhost:8080/people');
@@ -38,11 +40,29 @@ function App() {
     setCountries(data);
   }
 
+  const fetchData = async () => {
+    try {
+      await Promise.all([
+        fetchUsers(),
+        fetchPlants(),
+        fetchDuties(),
+        fetchCountries()
+      ]);
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      setLoading(false);
+    }
+  };
+  
   useEffect(() => {
-    fetchUsers(),
-    fetchPlants(),
-    fetchDuties(),
-    fetchCountries()}, [])
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
 
   return (
     <Router>

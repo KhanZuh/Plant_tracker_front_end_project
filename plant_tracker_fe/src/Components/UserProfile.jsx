@@ -8,7 +8,7 @@ const UserProfile = ({ users }) => {
 
     return(
         <>
-            <h2>{user.name}'s Profile</h2>
+            <h2>{user.name[0].toUpperCase() + user.name.slice(1)}'s Profile</h2>
         </>
     );
 
