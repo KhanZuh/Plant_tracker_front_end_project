@@ -1,8 +1,9 @@
 import {BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import './App.css'
-import { Navbar } from "react-bootstrap"
 import Home from "./Components/Home"
+import Navbar from "./Components/Navbar"
 import { useState, useEffect } from "react"
+import UsersList from "./Components/UsersList"
 
 
 function App() {
@@ -47,11 +48,12 @@ function App() {
   return (
     <Router>
     <div className="app">
-      {/*  <Navbar /> */}
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home/>} />
-        {/* // <Route path="/users" element={<UsersPage />} /> */}
-        {/* // <Route path="/plants" element={<PlantsPage/>} /> */}
+        <Route path="/users" element={<UsersList users={users} />} />
+        <Route path="/users/:id" element={<UserProfile users={users} duties={duties} />} />
+        {/* <Route path="/plants" element={<PlantsList users={users} plants={plants} />} /> */}
         {/* add more routes if needed */}
       </Routes>    
     </div>
