@@ -1,0 +1,629 @@
+{
+	"info": {
+		"_postman_id": "d8b36e91-25ff-4883-9324-d4fdfaef361a",
+		"name": "api_plant_tracker",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34582280"
+	},
+	"item": [
+		{
+			"name": "Duty",
+			"item": [
+				{
+					"name": "INDEX",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/duties",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"duties"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SHOW",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/duties/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"duties",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"plantId\":1,\n    \"personId\":2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/duties",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"duties"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PARTIAL UPDATE - Plant/person",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"personId\":2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/duties/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"duties",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FULL UPDATE",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"plantId\":1,\n    \"personId\":1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/duties/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"duties",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/duties/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"duties",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Person",
+			"item": [
+				{
+					"name": "INDEX",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/people",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"people"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SHOW",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/people/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"people",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Rabin\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/people",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"people"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FULL/PARTIAL UPDATE",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"Dena\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/people/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"people",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/people/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"people",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Country",
+			"item": [
+				{
+					"name": "INDEX",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/countries",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"countries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SHOW",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/countries/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"countries",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\": \"India\",\n\"climate\": \"TEMPERATE\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/countries",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"countries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PARTIAL UPDATE",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    // \"name\": \"India\"\n\"climate\": \"TEMPERATE\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/countries/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"countries",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FULL UPDATE",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\": \"Singapore\",\n\"climate\": \"TROPICAL\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/countries/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"countries",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/countries/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"countries",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Plant",
+			"item": [
+				{
+					"name": "INDEX",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/plants",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"plants"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SHOW",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/plants/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"plants",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"name\": \"Rose\",\n\"priority\": \"HIGH\",\n\"lastWatered\": \"12/06/2024\",\n\"countryId\" : 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/plants",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"plants"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PARTIAL UPDATE",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n// \"name\": \"Rose\"\n// \"priority\": \"HIGH\"\n// \"lastWatered\": \"12/06/2024\"\n\"countryId\" : 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/plants/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"plants",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FULL UPDATE",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"name\": \"Sunflower\",\n\"priority\": \"MEDIUM\",\n\"lastWatered\": \"12/06/2024\",\n\"countryId\" : 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/plants/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"plants",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/plants/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"plants",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PARTIAL UPDATE (Water)",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/plants/1/water-plant",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"plants",
+								"1",
+								"water-plant"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "INDEX(ProvideInstruction)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/plants/message/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"plants",
+								"message",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SHOW (Plant Info)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SHOW(getCountdown)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/plants/countdown/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"plants",
+								"countdown",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
