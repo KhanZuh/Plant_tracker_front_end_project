@@ -1,8 +1,9 @@
 import { useState } from "react";
 
-const UserFilter = ({ onFilter}) => {
+const UserFilter = ({ onFilter }) => {
 
     const [searchTerm, setSearchTerm] = useState("");
+
     const handleInputChange = (event) => {
         const value = event.target.value;
         setSearchTerm(value);

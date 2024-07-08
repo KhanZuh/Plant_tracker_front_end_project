@@ -5,6 +5,7 @@ import UserProfile from "./Components/UserProfile"
 import Navbar from "./Components/Navbar"
 import { useState, useEffect } from "react"
 import UsersList from "./Components/UsersList"
+import UserForm from "./Components/UserForm"
 
 
 function App() {
@@ -63,6 +64,15 @@ function App() {
     return <div>Loading...</div>;
   }
 
+  const postUser = async (newUser) => {
+    const response = await fetch("http://localhost:8080/people", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(newUser)
+    });
+    const savedUser = await response.json();
+    setUsers([...users, savedUser]);
+  }
 
   return (
     <Router>
@@ -73,6 +83,7 @@ function App() {
         <Route path="/users" element={<UsersList users={users} />} />
         <Route path="/users/:id" element={<UserProfile users={users} duties={duties}  />} />
         {/* <Route path="/plants" element={<PlantsList users={users} plants={plants} />} /> */}
+        <Route path="/users/create" element={<UserForm postUser = {postUser}/>} />
         {/* add more routes if needed */}
       </Routes>    
     </div>
