@@ -109,6 +109,24 @@ function App() {
     }
   }
 
+  const getPlant = async (id) => {
+    const response = await fetch(`http://localhost:8080/plants/${id}`);
+    const data = await response.json();
+    return data;
+  };
+
+  const waterPlant = async (id) => {
+    const response = await fetch(`http://localhost:8080/plants/${id}/water-plant`, {
+      method: 'PATCH'
+    });
+    if (response.ok) {
+      // Refresh the plant data
+      await fetchPlants();
+    } else {
+      console.error('Failed to water plant');
+    }
+  }
+
   
 
   return (
@@ -120,7 +138,7 @@ function App() {
         <Route path="/users" element={<UsersList users={users} />} />
         <Route path="/users/:id" element={<UserProfile users={users} duties={duties} message={message} showInformation={showInformation} deleteDuty={deleteDuty}/>} />
         <Route path="/plants" element={<PlantList users={users} plants={plants} countries={countries} />} />
-        <Route path="/plants/:id" element={<PlantProfile users={users} plants={plants} countries={countries} duties={duties} />} />
+        <Route path="/plants/:id" element={<PlantProfile users={users} plants={plants} countries={countries} duties={duties} waterPlant={waterPlant} getPlant={getPlant} />} />
         <Route path="/users/create" element={<UserForm postUser = {postUser}/>} />
         <Route path="/users/:id/add-duty" element={<UserDutyForm users={users} plants={plants} duties={duties} postDuty={postDuty} fetchPlants={fetchPlants}/> } />
         {/* add more routes if needed */}
