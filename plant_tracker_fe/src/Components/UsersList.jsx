@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import UserProfile from './UserProfile';
 import UserFilter from './UserFilter'
 import { useEffect, useState } from 'react';
 
@@ -29,7 +28,6 @@ const UsersList = ({ users }) => {
                     <p>{user.name[0].toUpperCase() + user.name.slice(1)}</p>
                     <Link to={`/users/${user.id}`} >
                         <button>INFO</button>
-                        {/* <UserProfile user={user} /> */}
                     </Link>
                 </div>
             ))}

@@ -1,0 +1,6 @@
+
+
+
+
+
+const PlantList = ({plants, countries})
