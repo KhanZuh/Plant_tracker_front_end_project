@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 
 
 
-const PlantList = ({plants, countries}) => {
+const PlantList = ({users, plants, countries}) => {
     return (
         <div>
             <h2>Plants</h2>
