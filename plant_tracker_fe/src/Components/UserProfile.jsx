@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-const UserProfile = ({ users, duties, message, showInformation }) => {
+const UserProfile = ({ users, duties, message, showInformation, deleteDuty, fetchUsers}) => {
 
     const {id} = useParams();
     const user = users.find(user => user.id === parseInt(id))
@@ -18,6 +18,11 @@ const UserProfile = ({ users, duties, message, showInformation }) => {
         });
     }, [id, userDuties, handleInformation]);
 
+    const handleDeleteDuty = async (dutyId) => {
+        await deleteDuty(dutyId)
+    }
+
+
     return(
         <>
             <h2>{user.name[0].toUpperCase() + user.name.slice(1)}'s Profile</h2>
@@ -26,11 +31,14 @@ const UserProfile = ({ users, duties, message, showInformation }) => {
                 {userDuties.map(duty => (
                     <div key={duty.id}>
                         <li>{duty.plant.name}</li> 
-                        <p>{message.instruction || "Loading..."}</p>
+                        <p>{message.instruction || "Loading..."}</p>            
+                        <button onClick={() => handleDeleteDuty(duty.id)}>Delete Duty</button>
                     </div>
-                ))}
+                ))}                
             </ul>
             <button><Link to={`/users/${id}/add-duty/`}>Add Duty</Link></button>
+            
+
             {/* Maybe add a "Water plant" button and functionality here */}
         </>
     );

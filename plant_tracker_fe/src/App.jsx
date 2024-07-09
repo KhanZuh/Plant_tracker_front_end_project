@@ -98,6 +98,19 @@ function App() {
     setDuties([...duties, savedDuty]);
   }
 
+  const deleteDuty = async (id) => {
+    const response = await fetch(`http://localhost:8080/duties/${id}`, {
+      method: "DELETE"
+    });
+    if(response.ok){
+      await fetchDuties();
+    } else {
+      console.error("Failed to delete duty")
+    }
+  }
+
+  
+
   return (
     <Router>
     <div className="app">
@@ -105,7 +118,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/users" element={<UsersList users={users} />} />
-        <Route path="/users/:id" element={<UserProfile users={users} duties={duties} message={message} showInformation={showInformation} />} />
+        <Route path="/users/:id" element={<UserProfile users={users} duties={duties} message={message} showInformation={showInformation} deleteDuty={deleteDuty}/>} />
         <Route path="/plants" element={<PlantList users={users} plants={plants} countries={countries} />} />
         <Route path="/plants/:id" element={<PlantProfile users={users} plants={plants} countries={countries} duties={duties} />} />
         <Route path="/users/create" element={<UserForm postUser = {postUser}/>} />
