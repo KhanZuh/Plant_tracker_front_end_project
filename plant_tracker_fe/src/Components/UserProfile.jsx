@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-const UserProfile = ({ users, duties, showInformation }) => {
+const UserProfile = ({ users, duties, message, showInformation }) => {
 
     const {id} = useParams();
     const user = users.find(user => user.id === parseInt(id))
@@ -11,6 +11,12 @@ const UserProfile = ({ users, duties, showInformation }) => {
         return showInformation(plantId);
     }
 
+    useEffect(() => {
+        userDuties.forEach(duty => {
+          handleInformation(duty.plant.id);
+        });
+    }, [id, userDuties, handleInformation]);
+
     return(
         <>
             <h2>{user.name[0].toUpperCase() + user.name.slice(1)}'s Profile</h2>
@@ -19,7 +25,7 @@ const UserProfile = ({ users, duties, showInformation }) => {
                 {userDuties.map(duty => (
                     <div key={duty.id}>
                         <li>{duty.plant.name}</li> 
-                        <p>{handleInformation(duty.plant.id).instruction}</p>
+                        <p>{message.instruction || "Loading..."}</p>
                     </div>
                 ))}
             </ul>
