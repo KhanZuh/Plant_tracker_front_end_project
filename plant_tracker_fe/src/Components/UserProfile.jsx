@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 const UserProfile = ({ users, duties }) => {
     const {id} = useParams();
     const user = users.find(user => user.id === parseInt(id))
-    const userDuties = duties.fitler(duties => duties.person.id === user.id)
+    const userDuties = duties.filter(duties => duties.person.id === user.id)
 
 
     return(
