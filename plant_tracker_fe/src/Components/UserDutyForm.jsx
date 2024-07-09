@@ -3,7 +3,7 @@ import { useParams, useNavigate  } from "react-router-dom";
 import { useState} from "react";
 
 
-const UserDutyForm = ({ users, plants, postDuty }) => {
+const UserDutyForm = ({ users, plants, postDuty, fetchPlants }) => {
     
     const [stateDuty, setStateDuty] = useState({plantId : null, personId : null})
     const navigate = useNavigate();
@@ -25,6 +25,10 @@ const UserDutyForm = ({ users, plants, postDuty }) => {
 
         navigate(`/users/${id}`) 
     }
+
+    useEffect(() => {
+        fetchPlants();
+    }, [])
 
 
     const handleValueChange = (event) => {

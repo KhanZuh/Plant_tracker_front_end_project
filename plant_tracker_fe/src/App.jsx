@@ -109,7 +109,7 @@ function App() {
         <Route path="/plants" element={<PlantList users={users} plants={plants} countries={countries} />} />
         <Route path="/plants/:id" element={<PlantProfile users={users} plants={plants} countries={countries} duties={duties} />} />
         <Route path="/users/create" element={<UserForm postUser = {postUser}/>} />
-        <Route path="/users/:id/add-duty" element={<UserDutyForm users={users} plants={plants} duties={duties} postDuty={postDuty} /> } />
+        <Route path="/users/:id/add-duty" element={<UserDutyForm users={users} plants={plants} duties={duties} postDuty={postDuty} fetchPlants={fetchPlants}/> } />
         {/* add more routes if needed */}
       </Routes>    
     </div>
