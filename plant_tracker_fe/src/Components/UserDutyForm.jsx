@@ -10,7 +10,8 @@ const UserDutyForm = ({ users, plants, postDuty }) => {
 
     const {id} = useParams();
     const user = users.find(user => user.id === parseInt(id))
-    const plantOptions = plants.filter((plant) => {
+    const filteredPlants = plants.filter(plant => plant.duties.length === 0)
+    const plantOptions = filteredPlants.map((plant) => {
         return <option key={plant.id} value={plant.id}>{plant.name}</option>
     })
 
