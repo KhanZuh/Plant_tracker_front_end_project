@@ -6,6 +6,7 @@ import Navbar from "./Components/Navbar"
 import { useState, useEffect } from "react"
 import UsersList from "./Components/UsersList"
 import UserForm from "./Components/UserForm"
+import PlantList from "./Components/PlantList"
 
 
 function App() {
@@ -82,7 +83,8 @@ function App() {
         <Route path="/" element={<Home/>} />
         <Route path="/users" element={<UsersList users={users} />} />
         <Route path="/users/:id" element={<UserProfile users={users} duties={duties}  />} />
-        {/* <Route path="/plants" element={<PlantsList users={users} plants={plants} />} /> */}
+        <Route path="/plants" element={<PlantsList users={users} plants={plants} countries={countries} />} />
+        <Route path="/plants/:id" element={<PlantProfile users={users} plants={plants} countries={countries} />} />
         <Route path="/users/create" element={<UserForm postUser = {postUser}/>} />
         {/* add more routes if needed */}
       </Routes>    
@@ -91,4 +93,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
