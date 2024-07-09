@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams, useNavigate  } from "react-router-dom";
 import { useState} from "react";
 
@@ -6,7 +6,7 @@ import { useState} from "react";
 const UserDutyForm = ({ users, plants, postDuty }) => {
     
     const [stateDuty, setStateDuty] = useState({plantId : null, personId : null})
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     const {id} = useParams();
     const user = users.find(user => user.id === parseInt(id))
@@ -23,7 +23,7 @@ const UserDutyForm = ({ users, plants, postDuty }) => {
             plantId: null
         });
 
-        // navigate(`/users/${id}`)
+        navigate(`/users/${id}`) 
     }
 
 
@@ -33,6 +33,8 @@ const UserDutyForm = ({ users, plants, postDuty }) => {
         copiedDuty["plantId"] = event.target.value;
         setStateDuty(copiedDuty);
     }
+
+    
 
     return(
         <>
