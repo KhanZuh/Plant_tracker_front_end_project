@@ -16,8 +16,6 @@ const UsersList = ({ users }) => {
         setFilteredUsers(filtered);
     }
 
- 
-
     return (
         <div> 
             <h2>Users</h2>
