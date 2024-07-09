@@ -23,7 +23,7 @@ const UsersList = ({ users }) => {
             <UserFilter onFilter = {handleFilter}/>
             {filteredUsers.map(user => (
                 <div key={user.id}>
-                    <p>{user.name[0].toUpperCase() + user.name.slice(1)}</p>
+                    <h3>{user.name[0].toUpperCase() + user.name.slice(1)}</h3>
                     <Link to={`/users/${user.id}`} >
                         <button>INFO</button>
                     </Link>

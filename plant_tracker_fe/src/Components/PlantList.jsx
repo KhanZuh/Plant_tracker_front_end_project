@@ -23,7 +23,7 @@ const PlantList = ({users, plants, countries}) => {
             <PlantFilter onFilter = {handleFilter}/>
             {filteredPlants.map(plant => (
                 <div key={plant.id}>
-                    <h3>{ plant.name }</h3>
+                    <h3>{ plant.name[0].toUpperCase() + plant.name.slice(1) }</h3>
                     <Link to={`/plants/${plant.id}`}>
                         <button>INFO</button>
                     </Link>
