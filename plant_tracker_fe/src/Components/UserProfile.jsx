@@ -1,11 +1,15 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 
-const UserProfile = ({ users, duties }) => {
+const UserProfile = ({ users, duties, showInformation }) => {
+
     const {id} = useParams();
     const user = users.find(user => user.id === parseInt(id))
     const userDuties = duties.filter(duties => duties.person.id === user.id)
 
+    const handleInformation = (plantId) => {
+        return showInformation(plantId);
+    }
 
     return(
         <>
@@ -13,7 +17,10 @@ const UserProfile = ({ users, duties }) => {
             <h3>Duty</h3>
             <ul>
                 {userDuties.map(duty => (
-                    <li key={duty.id}>{duty.plant.name}</li> // can be a modal for displaying duty
+                    <div key={duty.id}>
+                        <li>{duty.plant.name}</li> 
+                        <p>{handleInformation(duty.plant.id).instruction}</p>
+                    </div>
                 ))}
             </ul>
             {/* Maybe add a "Water plant" button and functionality here */}

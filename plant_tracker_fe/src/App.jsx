@@ -16,7 +16,9 @@ function App() {
   const [plants, setPlants] = useState([])
   const [duties, setDuties] = useState([])
   const [countries, setCountries] = useState([])
+  const [message, setMessage] = useState([])
   const [loading, setLoading] = useState(true);
+  
 
 
   const fetchUsers = async() => {
@@ -43,13 +45,25 @@ function App() {
     setCountries(data);
   }
 
+  const fetchInstructions = async(id) => {
+    const response = await fetch(`http://localhost:8080/plants/message/${id}`);
+    const data = await response.json();
+    setMessage(data);
+  }
+
+  const showInformation = (id) => {
+    fetchInstructions(id)
+    return message
+  }
+
   const fetchData = async () => {
     try {
       await Promise.all([
         fetchUsers(),
         fetchPlants(),
         fetchDuties(),
-        fetchCountries()
+        fetchCountries(),
+        fetchInstructions(),
       ]);
       setLoading(false);
     } catch (error) {
@@ -83,9 +97,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/users" element={<UsersList users={users} />} />
-        <Route path="/users/:id" element={<UserProfile users={users} duties={duties}  />} />
+        <Route path="/users/:id" element={<UserProfile users={users} duties={duties} showInformation={showInformation} />} />
         <Route path="/plants" element={<PlantList users={users} plants={plants} countries={countries} />} />
-        <Route path="/plants/:id" element={<PlantProfile users={users} plants={plants} countries={countries} duties = {duties} />} />
+        <Route path="/plants/:id" element={<PlantProfile users={users} plants={plants} countries={countries} duties={duties} />} />
         <Route path="/users/create" element={<UserForm postUser = {postUser}/>} />
         {/* add more routes if needed */}
       </Routes>    
