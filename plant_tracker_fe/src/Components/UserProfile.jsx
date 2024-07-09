@@ -10,10 +10,10 @@ const UserProfile = ({ users, duties }) => {
     return(
         <>
             <h2>{user.name[0].toUpperCase() + user.name.slice(1)}'s Profile</h2>
-            <h3>Duties</h3>
+            <h3>Duty</h3>
             <ul>
                 {userDuties.map(duty => (
-                <li key={duty.id}>{duty.plant.name}</li> // can be a modal for displaying duty
+                    <li key={duty.id}>{duty.plant.name}</li> // can be a modal for displaying duty
                 ))}
             </ul>
             {/* Maybe add a "Water plant" button and functionality here */}

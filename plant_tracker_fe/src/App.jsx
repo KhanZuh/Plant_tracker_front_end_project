@@ -85,7 +85,7 @@ function App() {
         <Route path="/users" element={<UsersList users={users} />} />
         <Route path="/users/:id" element={<UserProfile users={users} duties={duties}  />} />
         <Route path="/plants" element={<PlantList users={users} plants={plants} countries={countries} />} />
-        <Route path="/plants/:id" element={<PlantProfile users={users} plants={plants} countries={countries} />} />
+        <Route path="/plants/:id" element={<PlantProfile users={users} plants={plants} countries={countries} duties = {duties} />} />
         <Route path="/users/create" element={<UserForm postUser = {postUser}/>} />
         {/* add more routes if needed */}
       </Routes>    
