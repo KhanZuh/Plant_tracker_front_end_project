@@ -8,6 +8,7 @@ import UsersList from "./Components/UsersList"
 import UserForm from "./Components/UserForm"
 import PlantList from "./Components/PlantList"
 import PlantProfile from "./Components/PlantProfile"
+import UserDutyForm from "./Components/UserDutyForm"
 
 
 function App() {
@@ -87,6 +88,16 @@ function App() {
     setUsers([...users, savedUser]);
   }
 
+  const postDuty = async (newDuty) => {
+    const response = await fetch("http://localhost:8080/duties", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(newDuty)
+    });
+    const savedDuty = await response.json();
+    setDuties([...duties, savedDuty]);
+  }
+
   return (
     <Router>
     <div className="app">
@@ -98,6 +109,7 @@ function App() {
         <Route path="/plants" element={<PlantList users={users} plants={plants} countries={countries} />} />
         <Route path="/plants/:id" element={<PlantProfile users={users} plants={plants} countries={countries} duties={duties} />} />
         <Route path="/users/create" element={<UserForm postUser = {postUser}/>} />
+        <Route path="/users/:id/add-duty" element={<UserDutyForm users={users} plants={plants} duties={duties} postDuty={postDuty} /> } />
         {/* add more routes if needed */}
       </Routes>    
     </div>

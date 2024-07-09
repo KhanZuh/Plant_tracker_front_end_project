@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const UserProfile = ({ users, duties, message, showInformation }) => {
 
@@ -29,6 +30,7 @@ const UserProfile = ({ users, duties, message, showInformation }) => {
                     </div>
                 ))}
             </ul>
+            <button><Link to={`/users/${id}/add-duty/`}>Add Duty</Link></button>
             {/* Maybe add a "Water plant" button and functionality here */}
         </>
     );

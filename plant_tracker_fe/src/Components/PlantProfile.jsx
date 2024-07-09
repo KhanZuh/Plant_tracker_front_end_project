@@ -13,10 +13,10 @@ const PlantProfile = ({plants, duties}) => {
             <p>Age: {plant.age}</p>
             <p>Priority: {plant.priority}</p>
             <p>Country: {plant.country.name}</p>
-            <h3>Caretakers:</h3>
+            <h3>Caretaker:</h3>
             <ul>
                 {plantDuties.map(duty => (
-                    <li key={duty.id}>{duty.person.name}</li>
+                    <li key={duty.id}>{duty.person.name[0].toUpperCase()+duty.person.name.slice(1)}</li>
                 ))}
             </ul>
             {/* Maybe add  plant info modal functionality here */}
