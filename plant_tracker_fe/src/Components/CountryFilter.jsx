@@ -1,8 +1,8 @@
 import { useState } from "react";
-import './styles/UserFilter.css'
+import './styles/CountryFilter.css'
 
 
-const UserFilter = ({ onFilter }) => {
+const CountryFilter = ({ onFilter }) => {
 
     const [searchTerm, setSearchTerm] = useState("");
 
@@ -17,7 +17,7 @@ const UserFilter = ({ onFilter }) => {
         <div className="search-bar">
             <input
             type="text"
-            placeholder="Search by users name"
+            placeholder="Search by country name"
             value={searchTerm}
             onChange={handleInputChange}
             />
@@ -26,4 +26,4 @@ const UserFilter = ({ onFilter }) => {
     );
 }
 
-export default UserFilter;
+export default CountryFilter;

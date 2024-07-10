@@ -12,6 +12,8 @@ import PlantList from "./Components/PlantList"
 import PlantProfile from "./Components/PlantProfile"
 import UserDutyForm from "./Components/UserDutyForm"
 import PlantForm from "./Components/PlantForm"
+import CountryList from "./Components/CountryList"
+import CountryForm from "./Components/CountryForm"
 
 function App() {
 
@@ -152,6 +154,23 @@ function App() {
     return savedPlant;
   }
 
+  const postCountry = async (newCountry) => {
+    const response = await fetch("http://localhost:8080/countries", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(newCountry)
+    });
+    const savedCountry = await response.json();
+    
+    // Immediately update the state with the new plant
+    setCountries(prevCountries => [...prevCountries, savedCountry]);
+    
+    // Trigger a re-fetch to ensure consistency with the server
+    fetchCountries();
+    
+    return savedCountry;
+  }
+
   return (
     <Router>
       <div className="app d-flex flex-column min-vh-100">
@@ -166,6 +185,8 @@ function App() {
         <Route path="/users/create" element={<UserForm postUser={postUser}/>} />
         <Route path="/plants/create" element={<PlantForm postPlant={postPlant} countries={countries}/>} />
         <Route path="/users/:id/add-duty" element={<UserDutyForm users={users} plants={plants} duties={duties} postDuty={postDuty} fetchPlants={fetchPlants}/> } />
+        <Route path="/countries" element={<CountryList countries={countries}/> } />
+        <Route path="/countries/create" element={<CountryForm postCountry={postCountry}/> } />
         {/* add more routes if needed */}
         </Routes> 
         </main>
