@@ -1,13 +1,22 @@
-import react from "react";
-import {Link} from "react-router-dom"
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import PlantTracker from '../assets/PlantTracker.png'
+import './styles/Home.css'
 
 const Home = () => {
 
     return(
-        <div className="Home">
-            <h1>Plant Tracker</h1>
-            <p>Track, nurture and watch your garden flourish </p>
-        </div>
+        <Container>
+            <Row>
+            <Col>
+                <div className = "home">
+                    <img src = {PlantTracker} className = 'plant-tracker-logo-lg' alt = 'Plant Tracker'/>
+                    <h3>Track, nurture and watch your garden flourish.</h3>
+                </div>
+            </Col>
+            </Row>
+        </Container>
     )
 }
 

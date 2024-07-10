@@ -1,0 +1,16 @@
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    margin: 10rem;
+}
+
+.plant-tracker-logo-lg {
+    width: 25rem;
+    margin-right: 2.5rem;
+}
+
+.home p {
+    text-align: center;
+}
