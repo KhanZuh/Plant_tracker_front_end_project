@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import PlantFilter from "./PlantFilter";
-import { Container } from "react-bootstrap";
-import { Card } from "react-bootstrap";
+import { Container, Card } from "react-bootstrap";
 import './styles/PlantList.css'
 import PlantJson from '../utils/PlantJSON.json'
-
 
 const PlantList = ({ plants, countries, fetchPlants }) => {
     const [filteredPlants, setFilteredPlants] = useState([]);
@@ -54,7 +52,7 @@ const PlantList = ({ plants, countries, fetchPlants }) => {
                     {filteredPlants && filteredPlants.length > 0 ? (
                         filteredPlants.map(plant => (
                             <Card style={{ width: '18rem' }} key={`plant-${plant.id}-${plant.name}`} className="plant-card">
-                            <Card.Img variant="top" src={PlantJson.img} alt="picture of plant" />
+                                <Card.Img variant="top" src={PlantJson.img} alt="picture of plant" />
                                 <Card.Body>
                                     <Card.Title>
                                         {plant.displayName[0].toUpperCase() + plant.displayName.slice(1)}
@@ -64,7 +62,9 @@ const PlantList = ({ plants, countries, fetchPlants }) => {
                                         bulk of the card's content.
                                     </Card.Text>
                                     <Link to={`/plants/${plant.id}`}>
-                                        <button>INFO</button>
+                                        <button className="btn-custom">
+                                            <i className="fas fa-info-circle"></i> Info
+                                        </button>
                                     </Link>
                                 </Card.Body>    
                             </Card>
