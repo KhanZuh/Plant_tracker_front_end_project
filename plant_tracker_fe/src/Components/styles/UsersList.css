@@ -2,26 +2,49 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
+    text-align: left;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .user-options {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 25rem;
+    width: 100%;
+    margin-bottom: 2rem;
+    background-color: var(--green);
+    border-radius: 10px;
+    padding: 15px;
 }
 
 .user-list {
-  margin-top: 2rem;  
+  width: 100%;
 }
 
 .user-bar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem;
+    padding: .75rem;
     background-color: var(--green);
-    margin-bottom: 1rem;
-    gap: 30rem;
+    width: 100%;
+}
+
+.user-title{
+    margin: 30px;
+    font-size: 3rem
+}
+
+.user-profile-pic{
+    width: 150px;
+    height: 150px;
+}
+
+.user-accordion-body{
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    align-items: center;
 }

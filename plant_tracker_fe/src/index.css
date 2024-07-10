@@ -3,8 +3,12 @@ body,
 #root,
 #root > div,
 div[data-reactroot] {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   background-color: var(--lightGreen);
+  font-size: 1.em;
+}
+
+body{
+  font-family: "Roboto Slab", serif;
 }
 
 button {
