@@ -1,4 +1,6 @@
 import { useState } from "react";
+import './styles/UserFilter.css'
+
 
 const UserFilter = ({ onFilter }) => {
 
@@ -15,7 +17,7 @@ const UserFilter = ({ onFilter }) => {
         <div className="search-bar">
             <input
             type="text"
-            placeholder="Search Users"
+            placeholder="Search by name"
             value={searchTerm}
             onChange={handleInputChange}
             />
