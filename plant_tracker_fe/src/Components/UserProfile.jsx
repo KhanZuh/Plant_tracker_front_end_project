@@ -43,7 +43,7 @@ const UserProfile = ({ users, duties, message, showInformation, deleteDuty, fetc
                         <li>{duty.plant.name}</li> 
                         <p>{message.instruction || "Loading..."}</p>            
                         <button onClick={() => handleDeleteDuty(duty.id)}>Delete Duty</button>
-                        <Link to={`/plants/${duty.id.plant.id}`}><button>View Plant</button></Link>
+                        <Link to={`/plants/${duty.plant.id}`}><button>View Plant</button></Link>
                     </div>
                 ))}                
             </ul>
