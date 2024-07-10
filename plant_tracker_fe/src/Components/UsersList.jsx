@@ -36,10 +36,10 @@ const UsersList = ({ users }) => {
                             <Accordion>
                                 {filteredUsers.map(user => (
                                     <Accordion.Item eventKey={user.id.toString()} key={user.id} className = 'user-bar'>
-                                        <Accordion.Header>{user.name[0].toUpperCase() + user.name.slice(1)}</Accordion.Header>
-                                            <Accordion.Body>
-                                                {/* <img src = {UserJSON.img} />
-                                                <p className='bio'>{UserJSON.bio}</p> */}
+                                        <Accordion.Header className='user-name'>{user.name[0].toUpperCase() + user.name.slice(1)}</Accordion.Header>
+                                            <Accordion.Body className='user-accordion-body'>
+                                                <img src={UserJSON.img} alt='profile pic' className='user-profile-pic'/>
+                                                <p className='bio'>{UserJSON.bio}</p>
                                                 <Link to={`/users/${user.id}`} >
                                                     <button>INFO</button>
                                                 </Link>
