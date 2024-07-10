@@ -1,0 +1,26 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.user-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25rem;
+}
+
+.user-list {
+  margin-top: 2rem;  
+}
+
+.user-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: var(--green);
+    margin-bottom: 1rem;
+}

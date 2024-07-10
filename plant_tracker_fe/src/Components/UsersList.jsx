@@ -1,6 +1,10 @@
 import { Link } from 'react-router-dom'
 import UserFilter from './UserFilter'
 import { useEffect, useState } from 'react';
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import './styles/UsersList.css'
 
 const UsersList = ({ users }) => {
 
@@ -17,18 +21,28 @@ const UsersList = ({ users }) => {
     }
 
     return (
-        <div> 
+        <div className = 'content'> 
             <h2>Users</h2>
-            <Link to = {"/users/create"}><button>Create User</button></Link>
-            <UserFilter onFilter = {handleFilter}/>
-            {filteredUsers.map(user => (
-                <div key={user.id}>
-                    <h3>{user.name[0].toUpperCase() + user.name.slice(1)}</h3>
-                    <Link to={`/users/${user.id}`} >
-                        <button>INFO</button>
-                    </Link>
-                </div>
-            ))}
+            <div className = 'user-options'>
+                <Link to = {"/users/create"}><button>Create User</button></Link>
+                <UserFilter onFilter = {handleFilter}/>
+            </div>
+            <div className = 'user-list'>
+                <Container>
+                    <Row>
+                        <Col>
+                            {filteredUsers.map(user => (
+                                <div key={user.id} className = 'user-bar'>
+                                    <h3>{user.name[0].toUpperCase() + user.name.slice(1)}</h3>
+                                    <Link to={`/users/${user.id}`} >
+                                        <button>INFO</button>
+                                    </Link>
+                                </div>
+                            ))}
+                        </Col>
+                    </Row>
+                </Container>
+            </div>
         </div>
     );
 };
