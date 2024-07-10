@@ -9,7 +9,7 @@
     padding: 0 20px;
 }
 
-.user-options {
+.plant-options {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -20,26 +20,20 @@
     padding: 15px;
 }
 
-.user-list {
-  width: 100%;
-}
-
-.user-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: .75rem;
-    background-color: var(--green);
-    width: 100%;
-}
-
-.user-profile-pic{
-    width: 150px;
-    height: 150px;
-}
-
-.user-accordion-body{
+.plant-card-container{
     display: grid;
-    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    align-items: center; 
+}
+
+.flex-container-plant{
+    display: flex;
+    justify-content: center;
     align-items: center;
+}
+
+.plant-card{
+    margin: 15px;
+    padding: 5px;
 }
