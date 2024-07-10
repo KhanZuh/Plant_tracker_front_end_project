@@ -8,10 +8,10 @@ const PlantForm = ({postPlant, countries}) => {
     const [plant , setPlant] = useState(
         {
             name: "",
-            age: "Age",
-            countryId: "select-country",
-            plantType: "select-plant-type",
-            priority: "select-priority"
+            age: "",
+            countryId: "",
+            plantType: "",
+            priority: ""
         }
     );
 
@@ -20,10 +20,10 @@ const PlantForm = ({postPlant, countries}) => {
         await postPlant(plant);
         setPlant({
           name: "",
-          age: "Age",
-          countryId: "select-country",
-          plantType: "select-plant-type",
-          priority: "select-priority"
+          age: "",
+          countryId: "",
+          plantType: "",
+          priority: ""
         });
         navigate('/plants');
       }
@@ -49,7 +49,7 @@ const PlantForm = ({postPlant, countries}) => {
                 <input
                     name = "age"
                     type = "number"
-                    placeholder = "0"
+                    placeholder = "Age"
                     min={0}
                     onChange = {handleValueChange}
                     value = {plant.age}
@@ -61,7 +61,7 @@ const PlantForm = ({postPlant, countries}) => {
                     value={plant.plantType}
                     required
                 >
-                    <option disabled value="select-plant-type">Select a plant type</option>
+                    <option disabled value="">Select a plant type</option>
                     <option value="climbers">Climbers</option>
                     <option value="succulents">Succulents</option>
                     <option value="regular">Regular</option>
@@ -73,7 +73,7 @@ const PlantForm = ({postPlant, countries}) => {
                     value={plant.countryId}
                     required
                 >
-                    <option disabled value="select-country">Select a country</option>
+                    <option disabled value="">Select a country</option>
                     {countries.map(country => (
                         <option key={country.id} value={country.id}>{country.name}</option>
                     ))}
@@ -85,7 +85,7 @@ const PlantForm = ({postPlant, countries}) => {
                     value={plant.priority}
                     required
                 >
-                    <option disabled value="select-priority">Select priority</option>
+                    <option disabled value="">Select priority</option>
                     <option value="LOW">Low</option>
                     <option value="MEDIUM">Medium</option>
                     <option value="HIGH">High</option>
