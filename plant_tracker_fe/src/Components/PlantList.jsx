@@ -20,6 +20,7 @@ const PlantList = ({users, plants, countries}) => {
     return (
         <div>
             <h2>Plants</h2>
+            <Link to = {"/plants/create"}><button>Create Plant</button></Link>
             <PlantFilter onFilter = {handleFilter}/>
             {filteredPlants.map(plant => (
                 <div key={plant.id}>
