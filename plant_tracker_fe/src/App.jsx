@@ -11,7 +11,6 @@ import PlantProfile from "./Components/PlantProfile"
 import UserDutyForm from "./Components/UserDutyForm"
 import PlantForm from "./Components/PlantForm"
 
-
 function App() {
 
   const [users, setUsers] = useState([])
@@ -116,6 +115,12 @@ function App() {
     return data;
   };
 
+  const getPlantCountdown = async (id) => {
+    const response = await fetch(`http://localhost:8080/plants/countdown/${id}`);
+    const data = await response.json();
+    return data;
+  }
+
   const waterPlant = async (id) => {
     const response = await fetch(`http://localhost:8080/plants/${id}/water-plant`, {
       method: 'PATCH'
@@ -145,8 +150,6 @@ function App() {
     return savedPlant;
   }
 
-  
-
   return (
     <Router>
     <div className="app">
@@ -156,7 +159,7 @@ function App() {
         <Route path="/users" element={<UsersList users={users} />} />
         <Route path="/users/:id" element={<UserProfile users={users} duties={duties} message={message} showInformation={showInformation} deleteDuty={deleteDuty}/>} />
         <Route path="/plants" element={<PlantList users={users} plants={plants} countries={countries}/>} />
-        <Route path="/plants/:id" element={<PlantProfile users={users} plants={plants} countries={countries} duties={duties} waterPlant={waterPlant} getPlant={getPlant} />} />
+        <Route path="/plants/:id" element={<PlantProfile users={users} plants={plants} countries={countries} duties={duties} waterPlant={waterPlant} getPlant={getPlant} getPlantCountdown = {getPlantCountdown}/>} />
         <Route path="/users/create" element={<UserForm postUser={postUser}/>} />
         <Route path="/plants/create" element={<PlantForm postPlant={postPlant} countries={countries}/>} />
         <Route path="/users/:id/add-duty" element={<UserDutyForm users={users} plants={plants} duties={duties} postDuty={postDuty} fetchPlants={fetchPlants}/> } />
