@@ -6,10 +6,9 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import UserJSON from '../utils/UserJSON.json'
 import './styles/UsersList.css'
-import { Accordion, AccordionBody } from 'react-bootstrap';
+import { Accordion } from 'react-bootstrap';
 
 const UsersList = ({ users }) => {
-
     const [filteredUsers, setFilteredUsers] = useState(users);
 
     useEffect(() => {
@@ -23,27 +22,30 @@ const UsersList = ({ users }) => {
     }
 
     return (
+      
         <div className = 'content'> 
             <h2 className='title-of-page'>Users</h2>
             <div className = 'user-options'>
                 <Link to = {"/users/create"}><button>Create User</button></Link>
                 <UserFilter onFilter = {handleFilter}/>
             </div>
-            <div className = 'user-list'>
+            <div className='user-list'>
                 <Container>
                     <Row>
                         <Col>
                             <Accordion>
                                 {filteredUsers.map(user => (
-                                    <Accordion.Item eventKey={user.id.toString()} key={user.id} className = 'user-bar'>
+                                    <Accordion.Item eventKey={user.id.toString()} key={user.id} className='user-bar'>
                                         <Accordion.Header className='user-name'>{user.name[0].toUpperCase() + user.name.slice(1)}</Accordion.Header>
-                                            <Accordion.Body className='user-accordion-body'>
-                                                <img src={UserJSON.img} alt='profile pic' className='user-profile-pic'/>
-                                                <p className='bio'>{UserJSON.bio}</p>
-                                                <Link to={`/users/${user.id}`} >
-                                                    <button>INFO</button>
-                                                </Link>
-                                            </Accordion.Body>
+                                        <Accordion.Body className='user-accordion-body'>
+                                            <img src={UserJSON.img} alt='profile pic' className='user-profile-pic'/>
+                                            <p className='bio'>{UserJSON.bio}</p>
+                                            <Link to={`/users/${user.id}`}>
+                                                <button className="btn-custom">
+                                                    <i className="fas fa-info-circle"></i> Info
+                                                </button>
+                                            </Link>
+                                        </Accordion.Body>
                                     </Accordion.Item>
                                 ))}
                             </Accordion>
