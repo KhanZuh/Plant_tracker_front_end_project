@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import PlantFilter from "./PlantFilter";
 import { Container, Card, Row, Col } from "react-bootstrap";
 import './styles/PlantList.css'
-import PlantJson from '../utils/PlantJSON.json'
+import PlantJSON from '../utils/PlantJSON.json'
 
 const PlantList = ({ plants, countries, fetchPlants }) => {
     const [filteredPlants, setFilteredPlants] = useState([]);
@@ -53,7 +53,7 @@ const PlantList = ({ plants, countries, fetchPlants }) => {
                         filteredPlants.map(plant => (
                             <Col xs={12} sm={6} md={4} key={`plant-${plant.id}-${plant.name}`} className="plant-card">
                                 <Card style={{ width: '100%' }}>
-                                    <Card.Img variant="top" src={PlantJson.img} alt="picture of plant" />
+                                    <Card.Img variant="top" src={PlantJSON.img} alt="picture of plant" />
                                     <Card.Body>
                                         <Card.Title>
                                             {plant.displayName[0].toUpperCase() + plant.displayName.slice(1)}

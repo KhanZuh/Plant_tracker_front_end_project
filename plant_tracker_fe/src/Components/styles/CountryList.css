@@ -6,7 +6,7 @@
     padding: 0 20px;
 }
 
-.plant-options {
+.country-options {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -17,7 +17,7 @@
     padding: 15px;
 }
 
-.plant-card {
+.country-card {
     margin-bottom: 15px;
 }
 

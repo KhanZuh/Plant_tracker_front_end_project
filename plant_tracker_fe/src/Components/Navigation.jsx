@@ -22,6 +22,9 @@ const Navigation = () => {
                     <LinkContainer to="/plants">
                         <Nav.Link>Plants</Nav.Link>
                     </LinkContainer>
+                    <LinkContainer to="/countries">
+                        <Nav.Link>Countries</Nav.Link>
+                    </LinkContainer>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>

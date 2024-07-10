@@ -1,0 +1,16 @@
+.search-bar {
+    position: relative;
+}
+
+.search-bar input {
+    width: 75px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    transition: width 0.4s ease;
+}
+
+.search-bar input:focus {
+    width: 400px;
+    outline: none;
+}
