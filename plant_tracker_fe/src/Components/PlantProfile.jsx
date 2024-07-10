@@ -5,7 +5,7 @@ const PlantProfile = ({ plants, duties, waterPlant, getPlant, getPlantCountdown 
     const { id } = useParams();
     const [plant, setPlant] = useState(null);
     const [plantDuties, setPlantDuties] = useState([]);
-    const [plantCountdown, setPlantCountDown] = useState(0);
+    const [plantCountdown, setPlantCountDown] = useState({});
     const [message, setMessage] = useState("");
 
     useEffect(() => {
@@ -33,6 +33,29 @@ const PlantProfile = ({ plants, duties, waterPlant, getPlant, getPlantCountdown 
         }
     };
 
+    const canWater = (arg) => {
+
+        switch(arg) {
+            case "check":
+                if(plantDuties.length !== 0 ){
+                    if (plantCountdown.countdown === ""){
+                        return true;
+                    }
+                }
+                return false;
+            case "message":
+                if (plantDuties.length === 0) {
+                    return "Please assign this plant to a caretaker"
+                } else if (plantCountdown.countdown !== "") {
+                    return "Plant already watered, please wait until the next watering date"
+                }
+                break;
+            default:
+                break
+        }
+
+    }
+
     if (!plant) return <div>Loading...</div>;
 
     return (
@@ -50,12 +73,12 @@ const PlantProfile = ({ plants, duties, waterPlant, getPlant, getPlantCountdown 
             </ul>
             <button
                 onClick={handleWaterPlant}
-                disabled = {plantCountdown.countdown !== 0}
+                disabled = {!canWater("check")}
                 style={{
-                    opacity: plantCountdown.countdown !== 0 ? 0.5 : 1,
-                    cursor: plantCountdown.countdown !== 0 ? 'not-allowed' : 'pointer'
+                    opacity: canWater("check") ? 1 :  0.5,
+                    cursor: canWater("check") ? 'pointer' : 'not-allowed'
                 }}
-                title={plantCountdown.countdown !== 0? "Plant already watered, please wait until the next watering date" : "Water Plant"}>Water Plant</button>
+                title={canWater("check") ? "Water Plant" : canWater("message")}>Water Plant</button>
             {message && <p className="message">{message}</p>}
         </div>
     );
