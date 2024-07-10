@@ -6,7 +6,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import UserJSON from '../utils/UserJSON.json'
 import './styles/UsersList.css'
-import { Accordion } from 'react-bootstrap';
+import { Accordion, Button } from 'react-bootstrap';
 
 const UsersList = ({ users }) => {
     const [filteredUsers, setFilteredUsers] = useState(users);
@@ -32,7 +32,7 @@ const UsersList = ({ users }) => {
             <div className='user-list'>
                 <Container>
                     <Row>
-                        <Col>
+                        <Col xs={12}>
                             <Accordion>
                                 {filteredUsers.map(user => (
                                     <Accordion.Item eventKey={user.id.toString()} key={user.id} className='user-bar'>

@@ -1,4 +1,6 @@
 import { useState } from "react";
+import './styles/PlantFilter.css'
+
 
 const PlantFilter = ({ onFilter }) => {
 
@@ -15,7 +17,7 @@ const PlantFilter = ({ onFilter }) => {
             <div className="search-bar">
                 <input
                     type="text"
-                    placeholder="Enter name or country of origin"
+                    placeholder="Search by name or country of origin"
                     value={searchTerm}
                     onChange={handleInputChange}
                 />
