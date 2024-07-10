@@ -135,7 +135,14 @@ function App() {
       body: JSON.stringify(newPlant)
     });
     const savedPlant = await response.json();
-    setPlants([...plants, savedPlant]);
+    
+    // Immediately update the state with the new plant
+    setPlants(prevPlants => [...prevPlants, savedPlant]);
+    
+    // Trigger a re-fetch to ensure consistency with the server
+    fetchPlants();
+    
+    return savedPlant;
   }
 
   

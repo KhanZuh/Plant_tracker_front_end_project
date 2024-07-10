@@ -15,19 +15,19 @@ const PlantForm = ({postPlant, countries}) => {
         }
     );
 
-    const handleFormSubmit = (e) => {
+    const handleFormSubmit = async (e) => {
         e.preventDefault();
-        postPlant(plant);
+        await postPlant(plant);
         setPlant({
-                name: "",
-                age: "Age",
-                countryId: "select-country",
-                plantType: "select-plant-type",
-                priority: "select-priority"
-            });
-        navigate(`/plants`);
-    }
-
+          name: "",
+          age: "Age",
+          countryId: "select-country",
+          plantType: "select-plant-type",
+          priority: "select-priority"
+        });
+        navigate('/plants');
+      }
+      
     const handleValueChange = (e) => {
         const newPlant = {...plant};
         newPlant[e.target.name] = e.target.value;
