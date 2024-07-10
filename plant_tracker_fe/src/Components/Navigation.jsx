@@ -9,14 +9,13 @@ const Navigation = () => {
     return(
         <Navbar sticky = 'top'>
             <Navbar.Brand>
-                <img src = { logo } className = 'logo' alt='Plant Tracker Logo'/>
+                <LinkContainer to = "/">
+                    <Nav.Link><img src = { logo } className = 'logo' alt='Plant Tracker Logo'/></Nav.Link>
+                </LinkContainer>
             </Navbar.Brand>
             <Navbar.Toggle />
             <Navbar.Collapse>
                 <Nav>
-                    <LinkContainer to = "/">
-                        <Nav.Link>Home</Nav.Link>
-                    </LinkContainer>
                     <LinkContainer to="/users">
                         <Nav.Link>Users</Nav.Link>
                     </LinkContainer>
