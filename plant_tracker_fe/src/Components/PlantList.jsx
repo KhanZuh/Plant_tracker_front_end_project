@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import PlantFilter from "./PlantFilter";
-import { Container, Card } from "react-bootstrap";
+import { Container, Card, Row, Col } from "react-bootstrap";
 import './styles/PlantList.css'
 import PlantJson from '../utils/PlantJSON.json'
 
@@ -45,35 +45,39 @@ const PlantList = ({ plants, countries, fetchPlants }) => {
             <h2 className="title-of-page">Plants</h2>
             <div className="plant-options">
                 <Link to="/plants/create"><button>Create Plant</button></Link>
-                <PlantFilter onFilter={handleFilter}/>
+                <PlantFilter onFilter={handleFilter} />
             </div>
-            <div className="flex-container-plant">
-                <Container className="plant-card-container">
+            <Container className="plant-card-container">
+                <Row>
                     {filteredPlants && filteredPlants.length > 0 ? (
                         filteredPlants.map(plant => (
-                            <Card style={{ width: '18rem' }} key={`plant-${plant.id}-${plant.name}`} className="plant-card">
-                                <Card.Img variant="top" src={PlantJson.img} alt="picture of plant" />
-                                <Card.Body>
-                                    <Card.Title>
-                                        {plant.displayName[0].toUpperCase() + plant.displayName.slice(1)}
-                                    </Card.Title>
-                                    <Card.Text>
-                                        Some quick example text to build on the card title and make up the
-                                        bulk of the card's content.
-                                    </Card.Text>
-                                    <Link to={`/plants/${plant.id}`}>
-                                        <button className="btn-custom">
-                                            <i className="fas fa-info-circle"></i> Info
-                                        </button>
-                                    </Link>
-                                </Card.Body>    
-                            </Card>
+                            <Col xs={12} sm={6} md={4} key={`plant-${plant.id}-${plant.name}`} className="plant-card">
+                                <Card style={{ width: '100%' }}>
+                                    <Card.Img variant="top" src={PlantJson.img} alt="picture of plant" />
+                                    <Card.Body>
+                                        <Card.Title>
+                                            {plant.displayName[0].toUpperCase() + plant.displayName.slice(1)}
+                                        </Card.Title>
+                                        <Card.Text>
+                                            Some quick example text to build on the card title and make up the
+                                            bulk of the card's content.
+                                        </Card.Text>
+                                        <Link to={`/plants/${plant.id}`}>
+                                            <button className="btn-custom">
+                                                <i className="fas fa-info-circle"></i> Info
+                                            </button>
+                                        </Link>
+                                    </Card.Body>
+                                </Card>
+                            </Col>
                         ))
                     ) : (
+                        
                         <p>No plants available</p>
+                        
                     )}
-                </Container>
-            </div>
+                </Row>
+            </Container>
         </div>
     );
 }

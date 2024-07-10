@@ -1,7 +1,4 @@
 .content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     text-align: left;
     width: 100%;
     max-width: 1200px;
@@ -20,22 +17,14 @@
     padding: 15px;
 }
 
-.plant-card-container{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    justify-content: center;
-    align-items: center; 
-}
-
-.flex-container-plant{
+.plant-card-container {
+    width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
-.plant-card{
-    margin: 15px;
-    padding: 5px;
+.plant-card {
+    margin-bottom: 15px;
 }
 
 .btn-custom {

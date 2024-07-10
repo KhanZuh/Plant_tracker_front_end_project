@@ -3,11 +3,13 @@
     padding: 0.5rem;
     padding-left: 1rem !important;
     background-color: var(--beige) !important;
+    font-weight: bold;
 }
 
 .nav-link{
     color: var(--green) !important;
 }
+
 
 .nav-link:focus,
 .nav-link:active,

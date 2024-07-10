@@ -11,6 +11,7 @@
 
 .user-options {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
     width: 100%;
@@ -24,6 +25,10 @@
     width: 100%;
 }
 
+.user-name{
+    font-size: 1.2rem;
+}
+
 .user-bar {
     display: flex;
     align-items: center;
@@ -31,18 +36,66 @@
     padding: .75rem;
     background-color: var(--green);
     width: 100%;
+    margin-bottom: 10px;
 }
 
-
-.user-profile-pic{
+.user-profile-pic {
     width: 150px;
     height: 150px;
+    border-radius: 50%;
 }
 
 .user-accordion-body {
     display: grid;
-    grid-template-columns: 1fr 4fr 1fr;
-    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto; /* two rows. first for two columns, second for one column */
+    gap: 10px;
+    align-items: start;
+}
+
+.user-profile-pic, .bio, .btn-custom {
+    grid-column: span 1; /* span 1 column by default*/
+}
+
+
+/* this is the default width, not small */
+@media (min-width: 576px) {
+    .user-options {
+        flex-direction: row;
+    }
+
+    .user-accordion-body {
+        grid-template-columns: 1fr 4fr 1fr;
+        grid-template-rows: none;
+        align-items: center;
+    }
+}
+
+/* for screens below 800px */
+@media (max-width: 800px) {
+    .user-accordion-body {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto; /* 2 rows */
+        grid-auto-flow: row;
+    }
+
+
+    .user-profile-pic {
+        grid-column: 1 / 2; /* 1st col in first row */
+        grid-row: 1 / 2;
+    }
+
+    
+    .btn-custom {
+        grid-column: 2 / 3; /* 2nd column in the first row */
+        grid-row: 1 / 2;
+    }
+
+    
+    .bio {
+        grid-column: 1 / 3; /* spans both columns in 2ns row */
+        grid-row: 2 / 3;
+    }
 }
 
 .btn-custom {
@@ -79,4 +132,3 @@
 .btn-custom i {
     margin-right: 5px;
 }
-
