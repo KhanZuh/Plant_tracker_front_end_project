@@ -4,7 +4,7 @@ body,
 #root > div,
 div[data-reactroot] {
   background-color: var(--lightGreen);
-  font-size: 1.2rem;
+  font-size: 1.em;
 }
 
 body{
