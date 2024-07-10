@@ -6,6 +6,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import UserJSON from '../utils/UserJSON.json'
 import './styles/UsersList.css'
+import { Accordion, AccordionBody } from 'react-bootstrap';
 
 const UsersList = ({ users }) => {
 
@@ -23,7 +24,7 @@ const UsersList = ({ users }) => {
 
     return (
         <div className = 'content'> 
-            <h2>Users</h2>
+            <h2 className='user-title'>Users</h2>
             <div className = 'user-options'>
                 <Link to = {"/users/create"}><button>Create User</button></Link>
                 <UserFilter onFilter = {handleFilter}/>
@@ -32,16 +33,20 @@ const UsersList = ({ users }) => {
                 <Container>
                     <Row>
                         <Col>
-                            {filteredUsers.map(user => (
-                                <div key={user.id} className = 'user-bar'>
-                                    <h3>{user.name[0].toUpperCase() + user.name.slice(1)}</h3>
-                                    {/* <img src = {UserJSON.img} />
-                                    <p className='bio'>{UserJSON.bio}</p> */}
-                                    <Link to={`/users/${user.id}`} >
-                                        <button>INFO</button>
-                                    </Link>
-                                </div>
-                            ))}
+                            <Accordion>
+                                {filteredUsers.map(user => (
+                                    <Accordion.Item eventKey={user.id.toString()} key={user.id} className = 'user-bar'>
+                                        <Accordion.Header>{user.name[0].toUpperCase() + user.name.slice(1)}</Accordion.Header>
+                                            <Accordion.Body>
+                                                {/* <img src = {UserJSON.img} />
+                                                <p className='bio'>{UserJSON.bio}</p> */}
+                                                <Link to={`/users/${user.id}`} >
+                                                    <button>INFO</button>
+                                                </Link>
+                                            </Accordion.Body>
+                                    </Accordion.Item>
+                                ))}
+                            </Accordion>
                         </Col>
                     </Row>
                 </Container>
