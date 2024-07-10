@@ -50,7 +50,7 @@
 }
 
 .btn-custom {
-    background: linear-gradient(145deg, #8B4513, #A0522D);
+    background: linear-gradient(145deg, var(--buttonBrown1), var(--buttonBrown2));
     color: #F5DEB3;
     border: none;
     padding: 8px 16px;
@@ -63,8 +63,7 @@
 }
 
 .btn-custom:hover {
-    background: linear-gradient(145deg, #A0522D, #8B4513);
-    color: #FFFFFF;
+    background: linear-gradient(145deg, var(--buttonBrown2), var(--buttonBrown1));
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.3);
     animation: pulse 1s infinite;
