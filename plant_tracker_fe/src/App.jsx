@@ -1,8 +1,10 @@
+import React from "react"
 import {BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import './App.css'
 import Home from "./Components/Home"
 import UserProfile from "./Components/UserProfile"
 import Navigation from "./Components/Navigation"
+import Footer from "./Components/Footer"
 import { useState, useEffect } from "react"
 import UsersList from "./Components/UsersList"
 import UserForm from "./Components/UserForm"
@@ -152,9 +154,10 @@ function App() {
 
   return (
     <Router>
-    <div className="app">
-      <Navigation />
-      <Routes>
+      <div className="app d-flex flex-column min-vh-100">
+        <Navigation />
+        <main className="flex-shrink-0">
+        <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/users" element={<UsersList users={users} />} />
         <Route path="/users/:id" element={<UserProfile users={users} duties={duties} message={message} showInformation={showInformation} deleteDuty={deleteDuty}/>} />
@@ -164,10 +167,13 @@ function App() {
         <Route path="/plants/create" element={<PlantForm postPlant={postPlant} countries={countries}/>} />
         <Route path="/users/:id/add-duty" element={<UserDutyForm users={users} plants={plants} duties={duties} postDuty={postDuty} fetchPlants={fetchPlants}/> } />
         {/* add more routes if needed */}
-      </Routes>    
-    </div>
+        </Routes> 
+        </main>
+        <Footer /> 
+      </div>
     </Router>
-  )
+  );
 }
+
 
 export default App;
