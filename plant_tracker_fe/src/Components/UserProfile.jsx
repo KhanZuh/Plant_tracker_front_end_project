@@ -20,19 +20,6 @@ const UserProfile = ({ users, duties, message, showInformation, deleteDuty, fetc
         await deleteDuty(dutyId)
     }
 
-
-    const handleWaterPlant = async () => {
-        try {
-            await waterPlant(plant.id);
-            await fetchPlantData(); // Refresh the plant data
-            setMessage("Plant watered successfully!");
-            setTimeout(() => setMessage(""), 3000); // Clear message after 3 seconds
-        } catch (error) {
-            setMessage("Error watering plant. Please try again.");
-            setTimeout(() => setMessage(""), 3000);
-        }
-    };
-
     return(
         <>
             <h2>{user.name[0].toUpperCase() + user.name.slice(1)}'s Profile</h2>

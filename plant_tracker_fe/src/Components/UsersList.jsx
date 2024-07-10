@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import UserJSON from '../utils/UserJSON.json'
 import './styles/UsersList.css'
 
 const UsersList = ({ users }) => {
@@ -34,6 +35,8 @@ const UsersList = ({ users }) => {
                             {filteredUsers.map(user => (
                                 <div key={user.id} className = 'user-bar'>
                                     <h3>{user.name[0].toUpperCase() + user.name.slice(1)}</h3>
+                                    {/* <img src = {UserJSON.img} />
+                                    <p className='bio'>{UserJSON.bio}</p> */}
                                     <Link to={`/users/${user.id}`} >
                                         <button>INFO</button>
                                     </Link>
