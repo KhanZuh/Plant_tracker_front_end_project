@@ -1,8 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Lottie from "lottie-react";
+import Plant from "../utils/Plant.json";
+import './styles/PlantAnimation.css'
 
 const PlantProfile = ({ plants, duties, waterPlant, getPlant, getPlantCountdown }) => {
     const { id } = useParams();
+    const lottieRef = useRef(null);
+    const [showText, setShowText] = useState(false);
     const [plant, setPlant] = useState(null);
     const [plantDuties, setPlantDuties] = useState([]);
     const [plantCountdown, setPlantCountDown] = useState({});
@@ -58,6 +63,18 @@ const PlantProfile = ({ plants, duties, waterPlant, getPlant, getPlantCountdown 
 
     if (!plant) return <div>Loading...</div>;
 
+    const handlePlayAnimation = () => {
+        if (lottieRef.current) {
+            lottieRef.current.play();
+          }
+          setShowText(true); //this is to present that the plant has been watered
+    }
+
+    const handleButtonClick = () => {
+        handleWaterPlant();
+        handlePlayAnimation();
+        }
+
     return (
         <div>
             <h2>{plant.name}</h2>
@@ -72,15 +89,22 @@ const PlantProfile = ({ plants, duties, waterPlant, getPlant, getPlantCountdown 
                 ))}
             </ul>
             <button
-                onClick={handleWaterPlant}
+                onClick={handleButtonClick}
                 disabled = {!canWater("check")}
                 style={{
                     opacity: canWater("check") ? 1 :  0.5,
                     cursor: canWater("check") ? 'pointer' : 'not-allowed'
                 }}
                 title={canWater("check") ? "Water Plant" : canWater("message")}>Water Plant</button>
+                <Lottie className="lottie-animation"
+                animationData={Plant} 
+                lottieRef={lottieRef} 
+                loop={false} 
+                autoplay={false} 
+                />
             {message && <p className="message">{message}</p>}
         </div>
+
     );
 };
 
