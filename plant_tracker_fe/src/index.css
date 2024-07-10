@@ -11,6 +11,12 @@ body{
   font-family: "Roboto Slab", serif;
 }
 
+.title-of-page{
+  margin: 30px;
+  font-size: 3rem;
+  color: var(--darkGreen);
+}
+
 button {
   border-radius: 8px;
   border: 1px solid transparent;

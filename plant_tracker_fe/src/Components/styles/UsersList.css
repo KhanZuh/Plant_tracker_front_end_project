@@ -33,12 +33,8 @@
     width: 100%;
 }
 
-.user-title {
-    margin: 30px;
-    font-size: 3rem
-}
 
-.user-profile-pic {
+.user-profile-pic{
     width: 150px;
     height: 150px;
 }

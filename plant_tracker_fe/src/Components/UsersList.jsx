@@ -22,11 +22,12 @@ const UsersList = ({ users }) => {
     }
 
     return (
-        <div className='content'> 
-            <h2 className='user-title'>Users</h2>
-            <div className='user-options'>
-                <Link to="/users/create"><button>Create User</button></Link>
-                <UserFilter onFilter={handleFilter}/>
+      
+        <div className = 'content'> 
+            <h2 className='title-of-page'>Users</h2>
+            <div className = 'user-options'>
+                <Link to = {"/users/create"}><button>Create User</button></Link>
+                <UserFilter onFilter = {handleFilter}/>
             </div>
             <div className='user-list'>
                 <Container>

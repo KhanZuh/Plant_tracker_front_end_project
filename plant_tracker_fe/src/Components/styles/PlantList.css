@@ -1,0 +1,39 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.plant-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 2rem;
+    background-color: var(--green);
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.plant-card-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    align-items: center; 
+}
+
+.flex-container-plant{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.plant-card{
+    margin: 15px;
+    padding: 5px;
+}
