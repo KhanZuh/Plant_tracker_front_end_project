@@ -2,7 +2,7 @@ import {BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import './App.css'
 import Home from "./Components/Home"
 import UserProfile from "./Components/UserProfile"
-import Navbar from "./Components/Navbar"
+import Navigation from "./Components/Navigation"
 import { useState, useEffect } from "react"
 import UsersList from "./Components/UsersList"
 import UserForm from "./Components/UserForm"
@@ -132,7 +132,7 @@ function App() {
   return (
     <Router>
     <div className="app">
-      <Navbar />
+      <Navigation />
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/users" element={<UsersList users={users} />} />
