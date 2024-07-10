@@ -29,8 +29,15 @@ const PlantForm = ({postPlant, countries}) => {
       }
       
     const handleValueChange = (e) => {
-        const newPlant = {...plant};
-        newPlant[e.target.name] = e.target.value;
+        const { name, value } = e.target;
+        const newPlant = { ...plant };
+
+        if (name === "name") {
+            newPlant[name] = value.charAt(0).toUpperCase() + value.slice(1);
+        } else {
+            newPlant[name] = value;
+        }
+
         setPlant(newPlant);
     }
 
@@ -43,7 +50,6 @@ const PlantForm = ({postPlant, countries}) => {
                     type = "text"
                     placeholder = "Plant name"
                     onChange = {handleValueChange}
-                    value = {plant.name}
                     required
                 />
                 <input
