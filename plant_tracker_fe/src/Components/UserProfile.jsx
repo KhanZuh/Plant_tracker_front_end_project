@@ -20,6 +20,19 @@ const UserProfile = ({ users, duties, message, showInformation, deleteDuty, fetc
         await deleteDuty(dutyId)
     }
 
+
+    const handleWaterPlant = async () => {
+        try {
+            await waterPlant(plant.id);
+            await fetchPlantData(); // Refresh the plant data
+            setMessage("Plant watered successfully!");
+            setTimeout(() => setMessage(""), 3000); // Clear message after 3 seconds
+        } catch (error) {
+            setMessage("Error watering plant. Please try again.");
+            setTimeout(() => setMessage(""), 3000);
+        }
+    };
+
     return(
         <>
             <h2>{user.name[0].toUpperCase() + user.name.slice(1)}'s Profile</h2>
@@ -30,6 +43,7 @@ const UserProfile = ({ users, duties, message, showInformation, deleteDuty, fetc
                         <li>{duty.plant.name}</li> 
                         <p>{message.instruction || "Loading..."}</p>            
                         <button onClick={() => handleDeleteDuty(duty.id)}>Delete Duty</button>
+                        <Link to={`/plants/${duty.id.plant.id}`}><button>View Plant</button></Link>
                     </div>
                 ))}                
             </ul>
@@ -52,6 +66,7 @@ const UserProfile = ({ users, duties, message, showInformation, deleteDuty, fetc
                 >
                     Add Duty
                 </Link>
+
             </button>
 
             {/* Maybe add a "Water plant" button and functionality here */}
