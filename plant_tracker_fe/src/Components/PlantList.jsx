@@ -2,7 +2,7 @@ import React, { useState , useEffect } from "react"
 import { Link } from "react-router-dom"
 import PlantFilter from "./PlantFilter";
 
-const PlantList = ({users, plants, countries}) => {
+const PlantList = ({users, plants, countries, fetchPlants}) => {
 
     const [filteredPlants, setFilteredPlants] = useState(plants);
 
