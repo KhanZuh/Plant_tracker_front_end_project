@@ -19,7 +19,7 @@ const UsersList = ({ users }) => {
     return (
         <div> 
             <h2>Users</h2>
-            <Link to = {"/users/create"}>Create User</Link>
+            <Link to = {"/users/create"}><button>Create User</button></Link>
             <UserFilter onFilter = {handleFilter}/>
             {filteredUsers.map(user => (
                 <div key={user.id}>
