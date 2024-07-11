@@ -1,15 +1,31 @@
 .footer {
-    background-color: #4CAF50;
-    color: white;
-    padding: 1rem 0;
-    text-align: center;
-  }
-  
-  .footer a {
-    color: #FFC107;
-    text-decoration: none;
-  }
-  
-  .footer a:hover {
-    text-decoration: underline;
-  }
+  background-color:  #DAD7CD;
+  color: #344E41;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.footer a {
+  color: #FFC107;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.language-selector {
+  margin-left: 15px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.language-selector .dropdown-toggle {
+  background-color: transparent;
+  border: none;
+  color: white;
+}
+
+.language-selector .dropdown-menu {
+  min-width: auto;
+}

@@ -1,12 +1,21 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
+import LanguageSelector from './LanguageSelector';
 import './styles/Footer.css';
 
-const Footer = () => {
+const Footer = ({ showLanguageSelector = false }) => {
+  const { t } = useTranslation();
+
   return (
-    <footer className="footer mt-auto py-3 bg-light">
+    <footer className="footer">
       <Container>
-        <span className="text-muted">© 2024 Plant Tracker | Privacy Policy | Terms of Use</span>
+        <span>{t('footer')}</span>
+        {showLanguageSelector && (
+          <span className="language-selector">
+            <LanguageSelector />
+          </span>
+        )}
       </Container>
     </footer>
   );

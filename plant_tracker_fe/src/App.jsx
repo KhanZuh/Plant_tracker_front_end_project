@@ -190,8 +190,8 @@ function App() {
         {/* add more routes if needed */}
         </Routes> 
         </main>
-        <Footer /> 
-      </div>
+        <Footer showLanguageSelector={true} />      
+        </div>
     </Router>
   );
 }
