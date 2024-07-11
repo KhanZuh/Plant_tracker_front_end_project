@@ -11,6 +11,7 @@ const PlantList = ({ plants, countries, fetchPlants }) => {
 
     useEffect(() => {
         if (plants && plants.length > 0) {
+            console.log('Plants:', plants);  // Added for debugging
             const updatedPlants = plants.map(plant => ({
                 ...plant,
                 displayName: plant.name || plant.tempName || 'Unnamed Plant'
@@ -27,7 +28,7 @@ const PlantList = ({ plants, countries, fetchPlants }) => {
         
         let filtered = plants.filter(plant => 
             (plant.name || plant.tempName || '').toLowerCase().includes(searchTerm.toLowerCase()) ||
-            (plant.country && plant.country.name.toLowerCase().includes(searchTerm.toLowerCase()))
+            (plant.country && plant.country.name && plant.country.name.toLowerCase().includes(searchTerm.toLowerCase()))
         );
 
         setFilteredPlants(filtered.map(plant => ({
@@ -59,8 +60,12 @@ const PlantList = ({ plants, countries, fetchPlants }) => {
                                             {plant.displayName[0].toUpperCase() + plant.displayName.slice(1)}
                                         </Card.Title>
                                         <Card.Text>
-                                            <p>Country of Origin: {plant.country.name}</p>
-                                            {plant.duties.length > 0 ? <p>Caretaker: {plant.duties[0].person.name[0].toUpperCase() + plant.duties[0].person.name.slice(1)}</p>  : <p>Caretaker: Not assigned</p>}
+                                            <p>Country of Origin: {plant.country ? plant.country.name : 'Unknown'}</p>
+                                            {plant.duties && plant.duties.length > 0 && plant.duties[0].person ? 
+                                                <p>Caretaker: {plant.duties[0].person.name[0].toUpperCase() + plant.duties[0].person.name.slice(1)}</p> 
+                                                : 
+                                                <p>Caretaker: Not assigned</p>
+                                            }
                                         </Card.Text>
                                         <Link to={`/plants/${plant.id}`}>
                                             <button className="btn-custom">
@@ -72,9 +77,7 @@ const PlantList = ({ plants, countries, fetchPlants }) => {
                             </Col>
                         ))
                     ) : (
-                        
                         <p>No plants available</p>
-                        
                     )}
                 </Row>
             </Container>
