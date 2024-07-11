@@ -14,6 +14,7 @@ import UserDutyForm from "./Components/UserDutyForm"
 import PlantForm from "./Components/PlantForm"
 import CountryList from "./Components/CountryList"
 import CountryForm from "./Components/CountryForm"
+import About from "./Components/About"
 
 function App() {
 
@@ -187,6 +188,7 @@ function App() {
         <Route path="/users/:id/add-duty" element={<UserDutyForm users={users} plants={plants} duties={duties} postDuty={postDuty} fetchPlants={fetchPlants}/> } />
         <Route path="/countries" element={<CountryList countries={countries}/> } />
         <Route path="/countries/create" element={<CountryForm postCountry={postCountry}/> } />
+        <Route path="/about" element={<About />} />
         {/* add more routes if needed */}
         </Routes> 
         </main>
