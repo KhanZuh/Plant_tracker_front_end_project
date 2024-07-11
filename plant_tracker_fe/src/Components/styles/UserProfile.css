@@ -1,0 +1,41 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.user-parent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 2rem !important;
+    margin-bottom: 2rem;
+    background-color: var(--green);
+    padding: 20px;
+    border-radius: 20px;
+    color: white;
+}
+
+.instruction{
+    max-width: 600px !important
+}
+
+
+
+.duty{
+    margin-top: 30px;
+}
+.plant-name{
+    padding-bottom: 15px;
+    list-style-type: none;
+    font-size: 30px;
+}
+
+.button{
+    border-radius: 50px;
+}
