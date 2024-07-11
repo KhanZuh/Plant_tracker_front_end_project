@@ -141,21 +141,25 @@ function App() {
   }
 
   const postPlant = async (newPlant) => {
+    // Ensure lastWateredDates is initialized
+    const plantWithInitializedDates = {
+      ...newPlant,
+      lastWateredDates: newPlant.lastWateredDates || []
+    };
+  
     const response = await fetch("http://localhost:8080/plants", {
       method: "POST",
       headers: {"Content-Type": "application/json"},
-      body: JSON.stringify(newPlant)
+      body: JSON.stringify(plantWithInitializedDates)
     });
     const savedPlant = await response.json();
     
-    // Immediately update the state with the new plant
     setPlants(prevPlants => [...prevPlants, savedPlant]);
-    
-    // Trigger a re-fetch to ensure consistency with the server
     fetchPlants();
     
     return savedPlant;
   }
+  
 
   const postCountry = async (newCountry) => {
     const response = await fetch("http://localhost:8080/countries", {
@@ -222,7 +226,7 @@ function App() {
   }
 
   useEffect(() => {
-    setFilteredPlants(plants.filter(plant => plant.lastWateredDates.length != 0));
+    setFilteredPlants(plants.filter(plant => plant.lastWateredDates && plant.lastWateredDates.length !== 0));
   }, [plants])
 
   useEffect(() => {
