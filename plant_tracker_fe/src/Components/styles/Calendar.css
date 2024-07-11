@@ -1,0 +1,9 @@
+.fc { /* the calendar root */
+    max-width: 50rem;
+    margin: 0 auto;
+    margin-bottom: 5rem;
+}
+
+.calendar-title {
+    margin-top: 5rem;
+}

@@ -221,27 +221,6 @@ function App() {
 
   }
 
-  // useEffect(() => {
-  //   const fetchEvents = async () => {
-  //       if (filteredPlants.length > 0) {
-  //           const newEvents = await Promise.all(filteredPlants.map(async (plant) => {
-  //               const nextWaterDate = await convertDate(plant);
-  //               if (nextWaterDate) {
-  //                   return {
-  //                       title: plant.name,
-  //                       date: nextWaterDate
-  //                   };
-  //               }
-  //               return null;
-  //           }));
-  //           setEvents(newEvents.filter(event => event !== null));
-  //       }
-  //   };
-
-  //   fetchEvents();
-  // }, [filteredPlants]);
-
-
   useEffect(() => {
     setFilteredPlants(plants.filter(plant => plant.lastWateredDates.length != 0));
   }, [plants])

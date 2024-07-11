@@ -1,8 +1,9 @@
 import FullCalendar from '@fullcalendar/react'
 import DayGridPlugin from '@fullcalendar/daygrid'
 import { useEffect, useState } from 'react';
+import './styles/Calendar.css'
 
-const Calendar = ({ events, getEvents }) => {
+const Calendar = ({ events }) => {
 
     /*
     
@@ -13,11 +14,13 @@ const Calendar = ({ events, getEvents }) => {
     */
 
     return (
-        <FullCalendar
+        <div className='calendar'>
+            <FullCalendar
             plugins={[DayGridPlugin]}
             initialView='dayGridMonth'
             events={events}
         />
+        </div>
     )
 }
 
