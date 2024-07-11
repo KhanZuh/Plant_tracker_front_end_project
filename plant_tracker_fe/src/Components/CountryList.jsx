@@ -4,6 +4,9 @@ import CountryFilter from "./CountryFilter";
 import { Link } from "react-router-dom";
 import './styles/CountryList.css';
 import CountryJSON from '../utils/CountryJSON.json'
+import Geography from '../utils/Geography.json'
+import Lottie from "lottie-react";
+import './styles/GeographyAnim.css'
 
 
 
@@ -19,7 +22,15 @@ const CountryList = ( { countries }) => {
 
     return (
         <div className = 'content'> 
-            <h2 className='title-of-page'>Countries</h2>
+
+            <div className="header-container">
+                <div className='title-of-page'>
+                    <h2>Countries</h2>
+                        <div className="animation-container"> <Lottie animationData={Geography} /> </div>
+                </div>
+            </div>
+
+
             <div className = 'country-options'>
                 <Link to = {"/countries/create"}>
                     <button>Add Country</button>
