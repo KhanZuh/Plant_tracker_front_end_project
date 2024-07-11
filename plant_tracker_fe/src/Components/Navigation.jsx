@@ -28,6 +28,9 @@ const Navigation = () => {
                     <LinkContainer to="/countries">
                         <Nav.Link>{t('countries')}</Nav.Link>
                     </LinkContainer>
+                    <LinkContainer to="/about">
+                        <Nav.Link>{t('about')}</Nav.Link>
+                    </LinkContainer>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
