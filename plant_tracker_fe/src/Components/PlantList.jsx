@@ -52,15 +52,15 @@ const PlantList = ({ plants, countries, fetchPlants }) => {
                     {filteredPlants && filteredPlants.length > 0 ? (
                         filteredPlants.map(plant => (
                             <Col xs={12} sm={6} md={4} key={`plant-${plant.id}-${plant.name}`} className="plant-card">
-                                <Card style={{ width: '100%' }}>
-                                    <Card.Img variant="top" src={Leaf} alt="picture of plant" />
+                                <Card style={{ width: '100%' }} className="card">
+                                    <Card.Img variant="top" src={Leaf} alt="picture of plant"  className="plant-card-image"/>
                                     <Card.Body>
                                         <Card.Title>
                                             {plant.displayName[0].toUpperCase() + plant.displayName.slice(1)}
                                         </Card.Title>
                                         <Card.Text>
-                                            Some quick example text to build on the card title and make up the
-                                            bulk of the card's content.
+                                            <p>Country of Origin: {plant.country.name}</p>
+                                            {plant.duties.length > 0 ? <p>Caretaker: {plant.duties[0].person.name[0].toUpperCase() + plant.duties[0].person.name.slice(1)}</p>  : <p>Caretaker: Not assigned</p>}
                                         </Card.Text>
                                         <Link to={`/plants/${plant.id}`}>
                                             <button className="btn-custom">

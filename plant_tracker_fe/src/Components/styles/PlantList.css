@@ -6,6 +6,7 @@
     padding: 0 20px;
 }
 
+
 .plant-options {
     display: flex;
     align-items: center;
@@ -15,10 +16,15 @@
     background-color: var(--green);
     border-radius: 10px;
     padding: 15px;
+    box-shadow: 5px 5px #1717173c;
 }
 
 .plant-card {
     margin-bottom: 15px;
+}
+
+.card{
+    box-shadow: 5px 5px #1717173c;
 }
 
 .btn-custom {

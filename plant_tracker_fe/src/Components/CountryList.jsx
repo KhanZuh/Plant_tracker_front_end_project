@@ -31,8 +31,8 @@ const CountryList = ( { countries }) => {
                     <Row>
                         {filteredCountries.map(country => (
                             <Col xs={12} sm={6} md={4} key={`country-${country.id}-${country.name}`} className="country-card">
-                                <Card style={{ width: '100%' }}>
-                                    <Card.Img variant="top" src={CountryJSON.img} alt="picture of country" />
+                                <Card style={{ width: '100%' }} className="card">
+                                    <Card.Img variant="top" src={CountryJSON.img} alt="picture of country" className="country-card-image"/>
                                     <Card.Body>
                                         <Card.Title>
                                             {country.name[0].toUpperCase() + country.name.slice(1)}
