@@ -2,6 +2,8 @@ import React, { useRef, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Lottie from "lottie-react";
 import Plant from "../utils/Plant.json";
+import { Container, Row } from 'react-bootstrap'
+import './styles/PlantProfile.css'
 import './styles/PlantAnimation.css'
 
 const PlantProfile = ({ plants, duties, waterPlant, getPlant, getPlantCountdown }) => {
@@ -12,10 +14,19 @@ const PlantProfile = ({ plants, duties, waterPlant, getPlant, getPlantCountdown 
     const [plantDuties, setPlantDuties] = useState([]);
     const [plantCountdown, setPlantCountDown] = useState({});
     const [message, setMessage] = useState("");
+    const [showAnimation, setShowAnimation] = useState(false);
 
     useEffect(() => {
         fetchPlantData();
     }, [id]);
+
+    useEffect(() => {
+        if(plantCountdown.countdown !==0) {
+            setShowAnimation(true);
+        } else {
+            setShowAnimation(false);
+        }
+    }, [plantCountdown])
 
     const fetchPlantData = async () => {
         const fetchedPlant = await getPlant(parseInt(id));
@@ -23,6 +34,9 @@ const PlantProfile = ({ plants, duties, waterPlant, getPlant, getPlantCountdown 
         const filteredDuties = duties.filter(duty => duty.plant.id === fetchedPlant.id);
         setPlantDuties(filteredDuties);
         const fetchedCountdown = await getPlantCountdown(parseInt(id));
+        if(fetchedCountdown.countdown === "") {
+            fetchedCountdown.countdown = 0;
+        }
         setPlantCountDown(fetchedCountdown);
     };
 
@@ -31,10 +45,10 @@ const PlantProfile = ({ plants, duties, waterPlant, getPlant, getPlantCountdown 
             await waterPlant(plant.id);
             await fetchPlantData(); // Refresh the plant data
             setMessage("Plant watered successfully!");
-            setTimeout(() => setMessage(""), 3000); // Clear message after 3 seconds
+            setTimeout(() => setMessage(""), 5000); // Clear message after 3 seconds
         } catch (error) {
             setMessage("Error watering plant. Please try again.");
-            setTimeout(() => setMessage(""), 3000);
+            setTimeout(() => setMessage(""), 5000);
         }
     };
 
@@ -43,7 +57,7 @@ const PlantProfile = ({ plants, duties, waterPlant, getPlant, getPlantCountdown 
         switch(arg) {
             case "check":
                 if(plantDuties.length !== 0 ){
-                    if (plantCountdown.countdown === ""){
+                    if (plantCountdown.countdown === 0){
                         return true;
                     }
                 }
@@ -51,7 +65,7 @@ const PlantProfile = ({ plants, duties, waterPlant, getPlant, getPlantCountdown 
             case "message":
                 if (plantDuties.length === 0) {
                     return "Please assign this plant to a caretaker"
-                } else if (plantCountdown.countdown !== "") {
+                } else if (plantCountdown.countdown !== 0) {
                     return "Plant already watered, please wait until the next watering date"
                 }
                 break;
@@ -68,41 +82,74 @@ const PlantProfile = ({ plants, duties, waterPlant, getPlant, getPlantCountdown 
             lottieRef.current.play();
           }
           setShowText(true); //this is to present that the plant has been watered
+          setShowAnimation(true);
     }
 
     const handleButtonClick = () => {
         handleWaterPlant();
         handlePlayAnimation();
+    }
+
+    const calculateWaterLevel = () => {
+
+        if (plantCountdown.countdown === 0) {
+            return 0;
         }
+
+        const maxCountdown = plantCountdown.countdown;
+        return (plantCountdown.countdown / maxCountdown) * 100;
+    }
 
     return (
         <div>
-            <h2>{plant.name}</h2>
-            <p>Age: {plant.age}</p>
-            <p>Priority: {plant.priority}</p>
-            <p>Country: {plant.country.name}</p>
-            <p>Days until next water: {plantCountdown.countdown}</p>
-            <h3>Caretaker:</h3>
-            <ul>
-                {plantDuties.map(duty => (
-                    <li key={duty.id}>{duty.person.name[0].toUpperCase() + duty.person.name.slice(1)}</li>
-                ))}
-            </ul>
-            <button
-                onClick={handleButtonClick}
-                disabled = {!canWater("check")}
-                style={{
-                    opacity: canWater("check") ? 1 :  0.5,
-                    cursor: canWater("check") ? 'pointer' : 'not-allowed'
-                }}
-                title={canWater("check") ? "Water Plant" : canWater("message")}>Water Plant</button>
-                <Lottie className="lottie-animation"
-                animationData={Plant} 
-                lottieRef={lottieRef} 
-                loop={false} 
-                autoplay={false} 
-                />
-            {message && <p className="message">{message}</p>}
+            <Container>
+                <Row>
+                    <div className = "plant-parent">
+                        <div className = "plant-details">
+                            {message && <p className="message">{message}</p>}
+                            <h2>{plant.name}</h2>
+                            <p>Age: {plant.age}</p>
+                            <p>Priority: {plant.priority}</p>
+                            <p>Country: {plant.country.name}</p>
+                            <p>Last Watered Date: {plant.lastWateredDates[plant.lastWateredDates.length - 1]}</p>
+                            <p>Days until next water:</p>
+                            <div className="water-level-container">
+                                <div
+                                    className="water-level"
+                                    style={{ width: `${calculateWaterLevel()}%` }}
+                                >
+                                    <div className="water-level-label">
+                                        {plantCountdown.countdown} days
+                                    </div>
+                                </div>
+                            </div>
+                            <h3>Caretaker:</h3>
+                            <div className = "plant-caretaker">
+                            {plantDuties.map(duty => (
+                                    <h4 key={duty.id}>{duty.person.name[0].toUpperCase() + duty.person.name.slice(1)}</h4>
+                                ))}
+                            </div>
+                        </div>
+                        { showAnimation &&
+                            <Lottie className="lottie-animation"
+                                animationData={Plant} 
+                                lottieRef={lottieRef} 
+                                loop={false} 
+                                autoplay={true} 
+                            />
+                        }
+                        <button
+                            className = "btn-water"
+                            onClick={handleButtonClick}
+                            disabled = {!canWater("check")}
+                            style={{
+                                opacity: canWater("check") ? 1 :  0.5,
+                                cursor: canWater("check") ? 'pointer' : 'not-allowed'
+                            }}
+                            title={canWater("check") ? "Water Plant" : canWater("message")}>Water Plant</button>
+                    </div>
+                </Row>
+            </Container>
         </div>
 
     );
