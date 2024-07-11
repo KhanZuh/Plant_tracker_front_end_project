@@ -102,12 +102,11 @@ const PlantProfile = ({ plants, duties, waterPlant, getPlant, getPlantCountdown 
 
     return (
         <div>
-            <Container>
+            <Container className="content">
                 <Row>
                     <div className = "plant-parent">
                         <div className = "plant-details">
-                            {message && <p className="message">{message}</p>}
-                            <h2>{plant.name}</h2>
+                            <h2 className="plant-name">{plant.name}</h2>
                             <p>Age: {plant.age}</p>
                             <p>Priority: {plant.priority}</p>
                             <p>Country: {plant.country.name}</p>
@@ -138,6 +137,7 @@ const PlantProfile = ({ plants, duties, waterPlant, getPlant, getPlantCountdown 
                                 autoplay={true} 
                             />
                         }
+                        {message && <p className="message">{message}</p>}
                         <button
                             className = "btn-water"
                             onClick={handleButtonClick}
