@@ -26,7 +26,7 @@ const UsersList = ({ users }) => {
         <div className = 'content'> 
             <h2 className='title-of-page'>Users</h2>
             <div className = 'user-options'>
-                <Link to = {"/users/create"}><button>Create User</button></Link>
+                <Link to = {"/users/create"}><button className='create-button'>Create User</button></Link>
                 <UserFilter onFilter = {handleFilter}/>
             </div>
             <div className='user-list'>

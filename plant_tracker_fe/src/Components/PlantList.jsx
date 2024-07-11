@@ -44,7 +44,7 @@ const PlantList = ({ plants, countries, fetchPlants }) => {
         <div className="content">
             <h2 className="title-of-page">Plants</h2>
             <div className="plant-options">
-                <Link to="/plants/create"><button>Create Plant</button></Link>
+                <Link to="/plants/create"><button className='create-button'>Create Plant</button></Link>
                 <PlantFilter onFilter={handleFilter} />
             </div>
             <Container className="plant-card-container">

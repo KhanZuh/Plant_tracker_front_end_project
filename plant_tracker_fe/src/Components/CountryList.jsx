@@ -22,7 +22,7 @@ const CountryList = ( { countries }) => {
             <h2 className='title-of-page'>Countries</h2>
             <div className = 'country-options'>
                 <Link to = {"/countries/create"}>
-                    <button>Add Country</button>
+                    <button className='create-button'>Add Country</button>
                 </Link>
                 <CountryFilter onFilter = {handleFilter}/>
             </div>
