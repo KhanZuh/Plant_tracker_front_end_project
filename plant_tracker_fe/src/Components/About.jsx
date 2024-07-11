@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Accordion } from 'react-bootstrap';
+import { Container, Accordion, Row } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import './styles/About.css';
 
@@ -15,20 +15,22 @@ const About = () => {
   ];
 
   return (
-    <Container className="about-container">
-      <h1>{t('about')}</h1>
-      <p>{t('aboutDescription')}</p>
-      
-      <h2>{t('faq')}</h2>
-      <Accordion>
-        {faqs.map((faq, index) => (
-          <Accordion.Item eventKey={index.toString()} key={index}>
-            <Accordion.Header>{t(faq.question)}</Accordion.Header>
-            <Accordion.Body>{t(faq.answer)}</Accordion.Body>
-          </Accordion.Item>
-        ))}
-      </Accordion>
-    </Container>
+    <section className='content'>
+      <Container>
+          <h2 className='title-of-page'>{t('about')}</h2>
+          <p>{t('aboutDescription')}</p>
+          
+          <h3 className='faq'>{t('faq')}</h3>
+          <Accordion className='accordion'>
+            {faqs.map((faq, index) => (
+              <Accordion.Item eventKey={index.toString()} key={index} className='about-bar'>
+                <Accordion.Header className='about-name'>{t(faq.question)}</Accordion.Header>
+                <Accordion.Body className='about-accordion-body'>{t(faq.answer)}</Accordion.Body>
+              </Accordion.Item>
+            ))}
+          </Accordion>
+      </Container>
+    </section>
   );
 };
 

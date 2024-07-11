@@ -139,3 +139,22 @@
 .btn-custom i {
     margin-right: 5px;
 }
+
+.accordion .accordion-button:focus {
+    box-shadow: none;
+  }
+  
+  .accordion .accordion-button:not(.collapsed) {
+    color: #000; 
+    background-color: #fff; 
+  }
+  
+  .accordion .accordion-button {
+    color: #000; 
+    background-color: #fff; 
+  }
+  
+  .accordion .accordion-button::after {
+    filter: invert(0); 
+  }
+  
