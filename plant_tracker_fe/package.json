@@ -11,10 +11,14 @@
   },
   "dependencies": {
     "bootstrap": "^5.3.3",
+    "i18next": "^23.11.5",
+    "i18next-browser-languagedetector": "^8.0.0",
+    "i18next-http-backend": "^2.5.2",
     "lottie-react": "^2.4.0",
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.4",
     "react-dom": "^18.3.1",
+    "react-i18next": "^14.1.2",
     "react-router-bootstrap": "^0.26.3",
     "react-router-dom": "^6.24.1"
   },

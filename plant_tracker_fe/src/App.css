@@ -51,3 +51,7 @@
 main {
   flex: 1 0 auto;
 }
+
+body {
+  padding-bottom: 0px; 
+}
