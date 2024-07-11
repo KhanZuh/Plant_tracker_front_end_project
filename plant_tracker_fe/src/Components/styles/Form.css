@@ -1,0 +1,31 @@
+
+.form-parent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 2rem !important;
+    margin-bottom: 2rem;
+    background-color: var(--green);
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.form-title{
+    color: white;
+    padding: 15px;
+}
+
+form > input, form > select{
+    display: block;
+    width: 200px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    margin: 10px;
+}
+
+.form-submit{
+    margin-top: 50px;
+}
+
