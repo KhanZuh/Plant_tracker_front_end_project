@@ -31,9 +31,9 @@
 
 .water-level-container {
     width: 20rem;
-    height: 30px;
+    height: 1.75rem;
     background-color: var(--beige);
-    border-radius: 5px;
+    border-radius: 1rem;
     margin-bottom: 2rem;
     position: relative;
 }
@@ -41,7 +41,7 @@
 .water-level {
     height: 100%;
     background-color: var(--green);
-    border-radius: 5px;
+    border-radius: 1rem;
     transition: width 0.5s ease-in-out;
 }
 
