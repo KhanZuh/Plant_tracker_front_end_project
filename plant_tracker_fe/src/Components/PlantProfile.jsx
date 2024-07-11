@@ -6,13 +6,12 @@ import { Container, Row } from 'react-bootstrap'
 import './styles/PlantProfile.css'
 import './styles/PlantAnimation.css'
 
-const PlantProfile = ({ plants, duties, waterPlant, getPlant, getPlantCountdown }) => {
+const PlantProfile = ({ plants, duties, waterPlant, getPlant, getPlantCountdown, plantCountdown }) => {
     const { id } = useParams();
     const lottieRef = useRef(null);
     const [showText, setShowText] = useState(false);
     const [plant, setPlant] = useState(null);
     const [plantDuties, setPlantDuties] = useState([]);
-    const [plantCountdown, setPlantCountDown] = useState({});
     const [message, setMessage] = useState("");
     const [showAnimation, setShowAnimation] = useState(false);
 
@@ -33,12 +32,16 @@ const PlantProfile = ({ plants, duties, waterPlant, getPlant, getPlantCountdown 
         setPlant(fetchedPlant);
         const filteredDuties = duties.filter(duty => duty.plant.id === fetchedPlant.id);
         setPlantDuties(filteredDuties);
-        const fetchedCountdown = await getPlantCountdown(parseInt(id));
-        if(fetchedCountdown.countdown === "") {
-            fetchedCountdown.countdown = 0;
-        }
-        setPlantCountDown(fetchedCountdown);
+        await getPlantCountdown(parseInt(id));
     };
+
+    const checkLastWatered = (plant) => {
+        if(plant.lastWateredDates.length === 0) {
+            return "Never Watered"
+        }
+
+        return plant.lastWateredDates[plant.lastWateredDates.length - 1];
+    }
 
     const handleWaterPlant = async () => {
         try {
@@ -110,7 +113,7 @@ const PlantProfile = ({ plants, duties, waterPlant, getPlant, getPlantCountdown 
                             <p>Age: {plant.age}</p>
                             <p>Priority: {plant.priority}</p>
                             <p>Country: {plant.country.name}</p>
-                            <p>Last Watered Date: {plant.lastWateredDates[plant.lastWateredDates.length - 1]}</p>
+                            <p>Last Watered Date: {checkLastWatered(plant)}</p>
                             <p>Days until next water:</p>
                             <div className="water-level-container">
                                 <div

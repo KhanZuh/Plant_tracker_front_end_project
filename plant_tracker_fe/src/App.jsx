@@ -24,6 +24,9 @@ function App() {
   const [countries, setCountries] = useState([])
   const [message, setMessage] = useState([])
   const [loading, setLoading] = useState(true);
+  const [plantCountdown, setPlantCountDown] = useState({});
+  const [filteredPlants, setFilteredPlants] = useState([]);
+  const [events, setEvents] = useState([]);
 
   const fetchUsers = async() => {
     const response = await fetch('http://localhost:8080/people');
@@ -79,10 +82,6 @@ function App() {
     fetchData();
   }, []);
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
   const postUser = async (newUser) => {
     const response = await fetch("http://localhost:8080/people", {
       method: "POST",
@@ -123,7 +122,10 @@ function App() {
   const getPlantCountdown = async (id) => {
     const response = await fetch(`http://localhost:8080/plants/countdown/${id}`);
     const data = await response.json();
-    return data;
+    if(data.countdown === "") {
+      data.countdown = 0;
+    }
+    setPlantCountDown(data);
   }
 
   const waterPlant = async (id) => {
@@ -172,17 +174,97 @@ function App() {
     return savedCountry;
   }
 
+  const convertDate = () => {
+
+    const countDownPromises = filteredPlants.map((plant) => {
+      return fetch(`http://localhost:8080/plants/countdown/${parseInt(plant.id)}`)
+      .then(response => response.json());
+    })
+
+    Promise.all(countDownPromises)
+    .then((countdowns) => {
+      const newEvents = filteredPlants.map( (plant) => {
+
+        let plantC;
+
+        countdowns.forEach(countdown => {
+          if(countdown.plantId === plant.id){
+            plantC = countdown.countdown;
+          }
+        })
+  
+        console.log("Count down " + plantC)
+    
+        let date = plant.lastWateredDates[plant.lastWateredDates.length - 1]
+    
+        date = date.split("/").reverse().join("/");
+        date = date.replaceAll("/", "-");
+    
+        console.log("INITIAL DATE: " + date);
+    
+        let nextWaterDate = new Date(date);
+    
+        nextWaterDate.setDate(nextWaterDate.getDate() + Number(plantC));
+        
+        nextWaterDate = nextWaterDate.toISOString().split('T')[0];
+    
+        console.log("NEXT DATE: " + nextWaterDate)
+  
+        return {
+          title: plant.name,
+          date: nextWaterDate
+        }
+      })
+  
+      setEvents(newEvents);
+    })
+
+  }
+
+  // useEffect(() => {
+  //   const fetchEvents = async () => {
+  //       if (filteredPlants.length > 0) {
+  //           const newEvents = await Promise.all(filteredPlants.map(async (plant) => {
+  //               const nextWaterDate = await convertDate(plant);
+  //               if (nextWaterDate) {
+  //                   return {
+  //                       title: plant.name,
+  //                       date: nextWaterDate
+  //                   };
+  //               }
+  //               return null;
+  //           }));
+  //           setEvents(newEvents.filter(event => event !== null));
+  //       }
+  //   };
+
+  //   fetchEvents();
+  // }, [filteredPlants]);
+
+
+  useEffect(() => {
+    setFilteredPlants(plants.filter(plant => plant.lastWateredDates.length != 0));
+  }, [plants])
+
+  useEffect(() => {
+    convertDate();
+  }, [filteredPlants])
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <Router>
       <div className="app d-flex flex-column min-vh-100">
         <Navigation />
         <main className="flex-shrink-0">
         <Routes>
-        <Route path="/" element={<Home/>} />
+        <Route path="/" element={<Home events = {events}/>} />
         <Route path="/users" element={<UsersList users={users} />} />
         <Route path="/users/:id" element={<UserProfile users={users} duties={duties} message={message} showInformation={showInformation} deleteDuty={deleteDuty}/>} />
         <Route path="/plants" element={<PlantList users={users} plants={plants} countries={countries}/>} />
-        <Route path="/plants/:id" element={<PlantProfile users={users} plants={plants} countries={countries} duties={duties} waterPlant={waterPlant} getPlant={getPlant} getPlantCountdown = {getPlantCountdown}/>} />
+        <Route path="/plants/:id" element={<PlantProfile users={users} plants={plants} countries={countries} duties={duties} waterPlant={waterPlant} getPlant={getPlant} getPlantCountdown = {getPlantCountdown} plantCountdown = {plantCountdown}/>} />
         <Route path="/users/create" element={<UserForm postUser={postUser}/>} />
         <Route path="/plants/create" element={<PlantForm postPlant={postPlant} countries={countries}/>} />
         <Route path="/users/:id/add-duty" element={<UserDutyForm users={users} plants={plants} duties={duties} postDuty={postDuty} fetchPlants={fetchPlants}/> } />
