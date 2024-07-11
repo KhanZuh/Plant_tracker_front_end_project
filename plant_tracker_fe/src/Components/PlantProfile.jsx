@@ -80,9 +80,9 @@ const PlantProfile = ({ plants, duties, waterPlant, getPlant, getPlantCountdown 
     const handlePlayAnimation = () => {
         if (lottieRef.current) {
             lottieRef.current.play();
-          }
-          setShowText(true); //this is to present that the plant has been watered
-          setShowAnimation(true);
+        }
+        setShowText(true); //this is to present that the plant has been watered
+        setShowAnimation(true);
     }
 
     const handleButtonClick = () => {
@@ -96,7 +96,7 @@ const PlantProfile = ({ plants, duties, waterPlant, getPlant, getPlantCountdown 
             return 0;
         }
 
-        const maxCountdown = plantCountdown.countdown;
+        const maxCountdown = plant.intervalBetweenWatering;
         return (plantCountdown.countdown / maxCountdown) * 100;
     }
 

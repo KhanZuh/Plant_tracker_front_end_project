@@ -10,14 +10,14 @@ const Navigation = () => {
     const { t } = useTranslation();
 
     return (
-        <Navbar sticky='top'>
+        <Navbar expand = "lg">
             <Navbar.Brand>
                 <LinkContainer to="/">
                     <Nav.Link><img src={logo} className='logo' alt={t('plantTrackerLogo')}/></Nav.Link>
                 </LinkContainer>
             </Navbar.Brand>
-            <Navbar.Toggle />
-            <Navbar.Collapse>
+            <Navbar.Toggle aria-controls= "navbar-nav"/>
+            <Navbar.Collapse id = "navbar-nav">
                 <Nav>
                     <LinkContainer to="/users">
                         <Nav.Link>{t('users')}</Nav.Link>
