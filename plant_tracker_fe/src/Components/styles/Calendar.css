@@ -7,3 +7,32 @@
 .calendar-title {
     margin-top: 5rem;
 }
+
+.fc-event {
+    background-color: var(--darkGreen);
+    color: white;
+    border: none;
+    padding: 2px 5px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.fc-header-toolbar {
+    background-color: var(--green);
+    color: white;
+    padding: 20px;
+    border-radius: 50px;
+    box-shadow: 5px 5px #1717173c;
+}
+  
+.fc-button{
+    border-radius: 50px !important;
+    background-color: var(--darkGreen) !important;
+    border: none !important;
+    margin: 2px !important;
+}
+
+.fc a{
+    color: var(--darkGreen) !important;
+}
