@@ -1,0 +1,21 @@
+.header-container {
+    text-align: center;
+    margin-top: 20px;
+    flex-direction: column;
+   
+  }
+  
+  .title-of-page {
+    margin-top: -20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .animation-container {
+    margin-top: -20px;
+    width: 200px;  
+    height: 100px; 
+    margin-left: 50px; 
+  }
+  
