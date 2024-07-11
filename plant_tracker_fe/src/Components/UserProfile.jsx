@@ -39,14 +39,6 @@ const UserProfile = ({ users, duties, message, showInformation, deleteDuty, fetc
                                     <Link to={`/plants/${duty.plant.id}`}><button className="button">View Plant</button></Link>
                                 </div>
                             ))}                
-                        <button className="button"
-                            disabled={userDuties.length > 0}
-                            style={{
-                                opacity: userDuties.length > 0 ? 0.5 : 1,
-                                cursor: userDuties.length > 0 ? 'not-allowed' : 'pointer'
-                            }}
-                            title={userDuties.length > 0 ? "A duty is already assigned to this user" : "Add a duty"}
-                        >
                             <Link 
                                 to={userDuties.length === 0 ? `/users/${id}/add-duty/` : "#"}
                                 onClick={(e) => userDuties.length > 0 && e.preventDefault()}
@@ -56,9 +48,17 @@ const UserProfile = ({ users, duties, message, showInformation, deleteDuty, fetc
                                     textDecoration: 'none'
                                 }}
                             >
+                            <button className="button"
+                            disabled={userDuties.length > 0}
+                            style={{
+                                opacity: userDuties.length > 0 ? 0.5 : 1,
+                                cursor: userDuties.length > 0 ? 'not-allowed' : 'pointer'
+                            }}
+                            title={userDuties.length > 0 ? "A duty is already assigned to this user" : "Add a duty"}
+                            >
                                 Add Duty
+                            </button>
                             </Link>
-                        </button>
                     </section>
                 </Row>
             </Container>

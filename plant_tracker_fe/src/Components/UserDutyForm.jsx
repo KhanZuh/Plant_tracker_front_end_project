@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { useParams, useNavigate  } from "react-router-dom";
 import { useState} from "react";
+import './styles/Form.css';
+import { Container, Row } from "react-bootstrap";
 
 
 const UserDutyForm = ({ users, plants, postDuty, fetchPlants }) => {
@@ -42,20 +44,25 @@ const UserDutyForm = ({ users, plants, postDuty, fetchPlants }) => {
 
     return(
         <>
-        <h3>Create Duty for {user.name[0].toUpperCase() + user.name.slice(1)}</h3>
-        <form onSubmit={handleFormSubmit}>
-        <label htmlFor="plant">Plant</label>
-        <select 
-            id="plant"
-            name="plantId"
-            defaultValue="select-plant"
-            onChange={handleValueChange}
-        >
-            <option disabled value="select-plant">Choose a plant</option>
-            {plantOptions}
-        </select>
-        <input type="submit" value="add-duty"></input>
-        </form>
+        <Container className="content">
+            <Row>
+                <section className="form-parent">
+                    <h2 className="form-title">Create Duty for {user.name[0].toUpperCase() + user.name.slice(1)}</h2>
+                    <form onSubmit={handleFormSubmit}>
+                        <select 
+                            id="plant"
+                            name="plantId"
+                            defaultValue="select-plant"
+                            onChange={handleValueChange}
+                        >
+                            <option disabled value="select-plant">Choose a plant</option>
+                            {plantOptions}
+                        </select>
+                        <input type="submit" value="Add Duty" className="form-submit"></input>
+                    </form>
+                </section>
+            </Row>
+        </Container>
         </>
     );
 
