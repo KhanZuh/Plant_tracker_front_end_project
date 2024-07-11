@@ -14,7 +14,7 @@ i18n
           users: "Users",
           plants: "Plants",
           countries: "Countries",
-          footer: "© 2024 Plant Tracker | Privacy Policy | Terms of Use",
+          footer: "© 2024 Plant Tracker",
           plantTrackerLogo: "Plant Tracker Logo",
           trackNurture: "Track, nurture and watch your garden flourish.",
           about: "About",
@@ -29,7 +29,13 @@ i18n
           howToAssignDuties: "How do I assign duties to users?",
           assignDutiesInstructions: "On a user's profile page, you can add duties by selecting a plant and assigning it to the user.",
           whatCountryInfo: "What information can I see about countries?",
-          countryInfoDescription: "The Countries page shows a list of countries and their climate types, which helps in determining suitable plants for each region."
+          countryInfoDescription: "The Countries page shows a list of countries and their climate types, which helps in determining suitable plants for each region.",
+          privacyPolicy: "Privacy Policy",
+          termsOfUse: "Terms of Use",
+          close: "Close",
+          agreeToTerms: "I agree to the terms and conditions",
+          privacyPolicyContent: "This Privacy Policy describes how your personal information is collected, used, and shared when you visit or make a purchase from our website.",
+          termsOfUseContent: "Welcome to our website. If you continue to browse and use this website, you are agreeing to comply with and be bound by the following terms and conditions of use."
         }
       },
       de: {
@@ -37,7 +43,7 @@ i18n
           users: "Benutzer",
           plants: "Pflanzen",
           countries: "Länder",
-          footer: "© 2024 Plant Tracker | Datenschutzrichtlinie | Nutzungsbedingungen",
+          footer: "© 2024 Plant Tracker",
           plantTrackerLogo: "Plant Tracker Logo",
           trackNurture: "Verfolgen, pflegen und beobachten Sie, wie Ihr Garten gedeiht.",
           about: "Über uns",
@@ -52,7 +58,13 @@ i18n
           howToAssignDuties: "Wie weise ich Benutzern Aufgaben zu?",
           assignDutiesInstructions: "Auf der Profilseite eines Benutzers können Sie Aufgaben hinzufügen, indem Sie eine Pflanze auswählen und sie dem Benutzer zuweisen.",
           whatCountryInfo: "Welche Informationen kann ich über Länder sehen?",
-          countryInfoDescription: "Die Länderseite zeigt eine Liste von Ländern und deren Klimatypen, was bei der Bestimmung geeigneter Pflanzen für jede Region hilft."
+          countryInfoDescription: "Die Länderseite zeigt eine Liste von Ländern und deren Klimatypen, was bei der Bestimmung geeigneter Pflanzen für jede Region hilft.",
+          privacyPolicy: "Datenschutzrichtlinie",
+          termsOfUse: "Nutzungsbedingungen",
+          close: "Schließen",
+          agreeToTerms: "Ich stimme den Nutzungsbedingungen zu",
+          privacyPolicyContent: "Diese Datenschutzerklärung beschreibt, wie Ihre persönlichen Informationen erfasst, verwendet und weitergegeben werden, wenn Sie unsere Website besuchen oder einen Kauf tätigen.",
+          termsOfUseContent: "Willkommen auf unserer Website. Wenn Sie weiterhin auf dieser Website surfen und sie nutzen, erklären Sie sich mit den folgenden Nutzungsbedingungen einverstanden."
         }
       },
       es: {
@@ -60,7 +72,7 @@ i18n
           users: "Usuarios",
           plants: "Plantas",
           countries: "Países",
-          footer: "© 2024 Plant Tracker | Política de privacidad | Términos de uso",
+          footer: "© 2024 Plant Tracker",
           plantTrackerLogo: "Logo de Plant Tracker",
           trackNurture: "Rastrea, cuida y observa cómo florece tu jardín.",
           about: "Acerca de",
@@ -75,7 +87,13 @@ i18n
           howToAssignDuties: "¿Cómo asigno tareas a los usuarios?",
           assignDutiesInstructions: "En la página de perfil de un usuario, puedes agregar tareas seleccionando una planta y asignándola al usuario.",
           whatCountryInfo: "¿Qué información puedo ver sobre los países?",
-          countryInfoDescription: "La página de Países muestra una lista de países y sus tipos de clima, lo que ayuda a determinar las plantas adecuadas para cada región."
+          countryInfoDescription: "La página de Países muestra una lista de países y sus tipos de clima, lo que ayuda a determinar las plantas adecuadas para cada región.",
+          privacyPolicy: "Política de privacidad",
+          termsOfUse: "Términos de uso",
+          close: "Cerrar",
+          agreeToTerms: "Acepto los términos y condiciones",
+          privacyPolicyContent: "Esta Política de privacidad describe cómo se recopila, utiliza y comparte su información personal cuando visita o realiza una compra en nuestro sitio web.",
+          termsOfUseContent: "Bienvenido a nuestro sitio web. Si continúa navegando y utilizando este sitio web, acepta cumplir y estar sujeto a los siguientes términos y condiciones de uso."
         }
       },
       fr: {
@@ -83,7 +101,7 @@ i18n
           users: "Utilisateurs",
           plants: "Plantes",
           countries: "Pays",
-          footer: "© 2024 Plant Tracker | Politique de confidentialité | Conditions d'utilisation",
+          footer: "© 2024 Plant Tracker",
           plantTrackerLogo: "Logo Plant Tracker",
           trackNurture: "Suivez, nourrissez et regardez votre jardin s'épanouir.",
           about: "À propos",
@@ -98,7 +116,13 @@ i18n
           howToAssignDuties: "Comment attribuer des tâches aux utilisateurs ?",
           assignDutiesInstructions: "Sur la page de profil d'un utilisateur, vous pouvez ajouter des tâches en sélectionnant une plante et en l'attribuant à l'utilisateur.",
           whatCountryInfo: "Quelles informations puis-je voir sur les pays ?",
-          countryInfoDescription: "La page Pays affiche une liste de pays et leurs types de climat, ce qui aide à déterminer les plantes appropriées pour chaque région."
+          countryInfoDescription: "La page Pays affiche une liste de pays et leurs types de climat, ce qui aide à déterminer les plantes appropriées pour chaque région.",
+          privacyPolicy: "Politique de confidentialité",
+          termsOfUse: "Conditions d'utilisation",
+          close: "Fermer",
+          agreeToTerms: "J'accepte les conditions d'utilisation",
+          privacyPolicyContent: "Cette Politique de confidentialité décrit comment vos informations personnelles sont collectées, utilisées et partagées lorsque vous visitez ou effectuez un achat sur notre site.",
+          termsOfUseContent: "Bienvenue sur notre site web. Si vous continuez à naviguer et à utiliser ce site web, vous acceptez de vous conformer et d'être lié par les conditions d'utilisation suivantes."
         }
       },
       ru: {
@@ -106,7 +130,7 @@ i18n
           users: "Пользователи",
           plants: "Растения",
           countries: "Страны",
-          footer: "© 2024 Plant Tracker | Политика конфиденциальности | Условия использования",
+          footer: "© 2024 Plant Tracker",
           plantTrackerLogo: "Логотип Plant Tracker",
           trackNurture: "Отслеживайте, ухаживайте и наблюдайте, как ваш сад процветает.",
           about: "О нас",
@@ -121,7 +145,13 @@ i18n
           howToAssignDuties: "Как назначать обязанности пользователям?",
           assignDutiesInstructions: "На странице профиля пользователя вы можете добавлять обязанности, выбирая растение и назначая его пользователю.",
           whatCountryInfo: "Какую информацию я могу увидеть о странах?",
-          countryInfoDescription: "На странице Страны отображается список стран и их типы климата, что помогает определить подходящие растения для каждого региона."
+          countryInfoDescription: "На странице Страны отображается список стран и их типы климата, что помогает определить подходящие растения для каждого региона.",
+          privacyPolicy: "Политика конфиденциальности",
+          termsOfUse: "Условия использования",
+          close: "Закрыть",
+          agreeToTerms: "Я соглашаюсь с условиями использования",
+          privacyPolicyContent: "Эта Политика конфиденциальности описывает, как ваша персональная информация собирается, используется и распространяется при посещении или покупке нашего сайта.",
+          termsOfUseContent: "Добро пожаловать на наш сайт. Продолжая пользоваться этим сайтом, вы соглашаетесь соблюдать и быть связанными следующими условиями использования."
         }
       },
     },
