@@ -2,25 +2,54 @@
 #### Track, nurture and watch your garden flourish.
 
 
-### Intro
+## Intro
 
-An interactive, user-friendly web application designed to streamline plant management tasks.
+Plant Tracker is an interactive, user-friendly web application designed to streamline plant management tasks.
 
-Plant Tracker helps you manage, assign and monitor your plants.
-
-### Dependencies and Frameworks
+## Dependencies and Frameworks
 
 insert image of depencencies used
 
-### How to use the web app
+## Installation
 
-sign up user
-sign up plant
-add country
-water plant button
-calendar
-privacy policy
+##### *1. Install the  prerequisite software.*
 
-### Web App Design - CSS theme
+Install Java and JavaScript via Node.
+
+##### *2. Run the Java backend*
+
+##### *3. Install the JavaScript dependancies*
+
+`npm install`
+
+##### *4. Run the front-end client*
+
+In your terminal, enter
+`npm run dev`
+By default the application will open on http://localhost/5173.
+
+
+
+
+
+## Directions
+
+##### Homepage
+![homepage](/content/homepage.png)
+
+##### User Page
+![user page](/content/user-list.png)
+
+##### Plant Info
+![plant info](/content/plant-info.png)
+
+##### Create Plant
+![create plant](/content/create-plant.png)
+
+##### Privacy Policy
+![privacy policy](/content/privacy-policy.png)
+
+
+
 
 
