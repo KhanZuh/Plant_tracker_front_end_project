@@ -35,19 +35,19 @@ By default the application will open on http://localhost/5173.
 ## Directions
 
 ##### Homepage
-![homepage](/content/homepage.png)
+![homepage](/plant_tracker_fe/content/homepage.png)
 
 ##### User Page
-![user page](/content/user-list.png)
+![user page](/plant_tracker_fe/content/user-list.png)
 
 ##### Plant Info
-![plant info](/content/plant-info.png)
+![plant info](/plant_tracker_fe/content/plant-info.png)
 
 ##### Create Plant
-![create plant](/content/create-plant.png)
+![create plant](/plant_tracker_fe/content/create-plant.png)
 
 ##### Privacy Policy
-![privacy policy](/content/privacy-policy.png)
+![privacy policy](/plant_tracker_fe/content/privacy-policy.png)
 
 
 
